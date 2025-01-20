@@ -1,3 +1,3 @@
-# OCI Private DNS configuration for Hub & Spoke architecture model in Open Landing Zone
+# OCI Open LZ - OCI Private DNS configuration for Hub & Spoke architecture model
 
-## **1. Summary**
+&nbsp; 
