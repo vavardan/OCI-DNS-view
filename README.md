@@ -4,5 +4,10 @@
 
 
 
-Hub and Spoke architecture model in One region
+OCI Private DNS configuration in one region
 <img src="images/one-region.png" width="900" height="value">
+
+
+
+OCI Private DNS configuration two connected regions
+<img src="images/two-regions.png" width="900" height="value">
