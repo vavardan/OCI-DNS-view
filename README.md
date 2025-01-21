@@ -13,7 +13,7 @@ This addon is designed to provide central managment of the OCI private DNS servi
 | - | - |
 | VCN Resolver | A VCN dedicated private DNS resolver contains the configuration that serves responses to DNS queries within the VCN. The resolver listens on 169.254.169.254 by default. |
 | Private Zones | Private zones contain DNS data only accessible from within a VCN, such as private IP addresses. |
-| Private Views | A private DNS view is a collection of private zones. And it can be:<br>• Default private view - a dedicated/default view for VCN Resolver.<br>• Associated private views - the private views from other VCNs. |
+| Private Views | A private DNS view is a collection of private zones. And it can be:<br>• Default Private View - a dedicated/default view for VCN Resolver.<br>• Associated Private Views - the private views from other VCNs, added into VCN Resolver. |
 | Resolver Endpoints | There are two types of endpoints:<br>• Listening endpoint - allows the DNS Resolver to answer DNS queries coming from outside the VCN such as on-prem systems and other resolvers.<br>• Forwarding endpoint - allows the DNS resolver to query a remote DNS as defined in the Forwarding rules. |
 | Forwarding rules | Rules are used to answer queries that aren't answered by a resolver's views and the queries that match the rule condition will be handled by the rule. If no rules match, the query will be resolved from internet DNS. |
 
