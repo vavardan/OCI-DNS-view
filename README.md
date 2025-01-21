@@ -1,4 +1,4 @@
-# OCI Private DNS configuration for Hub & Spoke architecture model
+# OCI Private DNS configuration for Hub & Spoke
 
 &nbsp; 
 
