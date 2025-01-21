@@ -3,7 +3,8 @@
 &nbsp; 
 
 ### Overview
-This addon is designed to provide central managment of the OCI private DNS service from the Hub VCN and by central Network team.
+This addon is designed to provide central management of the OCI private DNS service from the Hub VCN and by central Network team.
+This add-on is designed to allow the OCI Private DNS service to be managed centrally from the VCN of the hub, by a central team.
 
 &nbsp;
 
@@ -29,10 +30,17 @@ DNS responses in a VCN are evaluated using the configuration of the dedicated re
 
 ### One Region: Private DNS configuration view
 &nbsp;
+Configuration details:
+  - Hub VCN consist of the following resources and components: 
+    - Forwarding (hub_dns_forwarder) and Listening (hub_dns_listener) endpoints.
+    - VCN Resolver has associated private views for Hub and Spokes VCNs, so it contains all DNS data/records of all three VCNs (Hub and two Spokes)  .
+  - Spoke VCNs have Forwarding (p_dns_forwarder and pp_dns_forwarder accordingly) endpoints, and forwarding rules - which forwards oraclevcn.com domain specific queries to **hub_dns_listener**.
+
 <img src="images/one-region.png" width="900" height="value">
 
 
 
-OCI Private DNS configuration two connected regions
+### Two/Multi Regions: Private DNS configuration view
+&nbsp;
 <img src="images/two-regions.png" width="900" height="value">
 
