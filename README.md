@@ -5,6 +5,8 @@
 ### Overview
 This addon is designed to provide central managment of the OCI private DNS service from the Hub VCN and by central Network team.
 
+&nbsp;
+
 ### OCI Private DNS resources
 
 | Resource name | Description |
