@@ -33,8 +33,8 @@ DNS responses by VCN Resolver are processed based on the below presented order:
 Configuration details:
   - Hub VCN consist of the following resources and components: 
     - Forwarding (**hub_dns_forwarder**) and Listening (**hub_dns_listener**) endpoints.
-    - VCN Resolver has associated private views for Hub and Spokes VCNs, so it contains all DNS data/records of all three VCNs (Hub and two Spokes)  .
-  - Spoke VCNs have Forwarding (p_dns_forwarder and pp_dns_forwarder accordingly) endpoints, and forwarding rules - which forwards oraclevcn.com domain specific queries to **hub_dns_listener**.
+    - VCN Resolver has associated private views for Hub and Spokes VCNs, so it contains all DNS data/records of all three VCNs and can resolve any FQDN inside Hub and Spoke architecture.
+  - Spoke VCNs have Forwarding (**p_dns_forwarder** and **pp_dns_forwarder** accordingly) endpoints, and conditional forwarding rules, which forwards **oraclevcn.com** domain specific queries to **hub_dns_listener**.
 
 <img src="images/one-region.png" width="900" height="value">
 
