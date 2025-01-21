@@ -24,7 +24,7 @@ This add-on is designed to allow the OCI Private DNS service to be managed centr
 DNS responses by VCN Resolver are processed based on the below presented order:
 &nbsp;
 
-<img src="images/resolver-order.png" width="700" height="value">
+<img src="images/resolver-order.png" width="600" height="value">
 
 &nbsp;
 
