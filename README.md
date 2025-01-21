@@ -25,9 +25,10 @@ DNS responses in a VCN are evaluated using the configuration of the dedicated re
 
 <img src="images/resolver-order.png" width="900" height="value">
 
-### One Region: Private DNS configuration view
 &nbsp;
 
+### One Region: Private DNS configuration view
+&nbsp;
 <img src="images/one-region.png" width="900" height="value">
 
 
