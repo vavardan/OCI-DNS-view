@@ -10,7 +10,7 @@ This add-on is designed to allow the OCI Private DNS service to be managed centr
 
 ### OCI Private DNS resources
 
-| Resource name | Description |
+| Resource | Description |
 | - | - |
 | VCN Resolver | A VCN dedicated private DNS resolver contains the configuration that serves responses to DNS queries within the VCN. The resolver listens on 169.254.169.254 by default. |
 | Private Zones | Private zones contain DNS data only accessible from within a VCN, such as private IP addresses. |
