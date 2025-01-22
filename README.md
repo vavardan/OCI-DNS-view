@@ -34,7 +34,7 @@ DNS responses by VCN Resolver are processed based on the below presented order:
 
 &nbsp;
 
-### One Region: Private DNS configuration view
+### 1. One Region: Private DNS configuration view
 &nbsp;
 Configuration details:
   - Hub VCN consist of the following resources and components: 
@@ -44,9 +44,14 @@ Configuration details:
 
 <img src="images/one-region.png" width="900" height="value">
 
+### Private DNS animation for One Region
+This animation illustrates the DNS query and response, and covers the following actions:
+- VM (web01-p) in prod Spoke VCN does nslookup to get the IP address of VM (web02-pp) residing in preprod Spoke VCN.
+- VCN resolver chooses as the next action Forwarding Rules - 3rd point in the VCN Resolver order.
+- DNS query is forwarded to a hub_dns_listener endpoint through p_dns_forwarder in prod Spoke VCN, and hand it over to Hub VCN Resolver.
+- Hub VCN Resolver has all DNS data/records from all Associated private views, and it responses back (DNS response) to the prod VM. 
 
-
-### Two/Multi Regions: Private DNS configuration view
+### 2. Multi Region: Private DNS configuration view
 &nbsp;
 <img src="images/two-regions.png" width="900" height="value">
 
