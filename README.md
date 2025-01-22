@@ -3,8 +3,7 @@
 &nbsp; 
 
 ### Overview
-This addon is designed to provide central management of the OCI private DNS service from the Hub VCN and by central Network team.
-This add-on is designed to allow the OCI Private DNS service to be managed centrally from the VCN of the hub, by a central team.
+This configuration enables centralized private DNS zone management within a Hub VCN, controlled by a central network team. All DNS configurations, including zone creation, record updates, are streamlined through a single management point. This ensures consistency, simplifies administration, and eliminates the complexity of managing DNS across multiple environments and OCI regions.
 
 &nbsp;
 
