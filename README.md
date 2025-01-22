@@ -7,7 +7,7 @@ This configuration enables centralized private DNS zone management within a Hub 
 
 This document consists/covers configuration views for multiple use cases:
 1. Private DNS configuration inside Hub & Spoke architecture for One Region
-2. Private DNS configuration for Multi Region - Hub/Spokes peered via Remote Peering Connection (RPC)
+2. Private DNS configuration for Multi Regions - Hub/Spokes peered via Remote Peering Connection (RPC)
 
 
 &nbsp;
