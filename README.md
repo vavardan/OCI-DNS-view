@@ -45,11 +45,11 @@ Configuration details:
 <img src="images/one-region.png" width="900" height="value">
 
 ### Private DNS animation for One Region
-This animation illustrates the DNS query and response, and covers the following actions:
-- VM (web01-p) in prod Spoke VCN does nslookup to get the IP address of VM (web02-pp) residing in preprod Spoke VCN.
-- VCN resolver chooses as the next action Forwarding Rules - 3rd point in the VCN Resolver order.
-- DNS query is forwarded to a hub_dns_listener endpoint through p_dns_forwarder in prod Spoke VCN, and hand it over to Hub VCN Resolver.
-- Hub VCN Resolver has all DNS data/records from all Associated private views, and it responses back (DNS response) to the prod VM. 
+This animation illustrates the DNS query and response within Hub & Spoke, and covers the following actions:
+- VM (**web01-p**) in prod Spoke VCN performs nslookup to get IP address of VM (**web02-pp**) located in preprod Spoke VCN.
+- VCN resolver chooses **'Forwarding Rules'** as next action - 3rd item in **VCN resolver order**.
+- DNS query is forwarded by **p_dns_forwarder** in prod Spoke VCN to a **hub_dns_listener** endpoint and passed to Hub VCN Resolver.
+- Hub VCN Resolver has all the DNS data/records from all the **Associated private views**, and it responds back (DNS response) to the prod VM. 
 
 ### 2. Multi Region: Private DNS configuration view
 &nbsp;
