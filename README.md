@@ -54,11 +54,13 @@ This animations illustrate the DNS query and response within Hub & Spoke, and co
     2. Default Private View: here it contains only self VCN specific DNS records, so to the next one.
     3. Forwarding Rules: it picks this one, as it contains rule for oraclevcn.com forwarding to the **hub_dns_listener**.
 - The DNS query is then forwarded by the **p_dns_forwarder** in the prod Spoke VCN to a **hub_dns_listener** endpoint, and then to the Hub VCN Resolver.
-- Hub VCN Resolver has all the DNS data/records from all the **Associated private views**, and it responds back (DNS response) to the prod VM. 
+- Hub VCN Resolver has all the DNS data/records from all the **Associated private views**, and it responds back (DNS response) to the prod VM.
 
-2. **DNS resolution within the same Spoke VCN**
+<img src="images/spoke2spoke.gif" width="600" />
 
-3. **Internet DNS resolution**
+1. **DNS resolution within the same Spoke VCN**
+
+2. **Internet DNS resolution**
 
 ### 2. Multi Region: Private DNS configuration view
 &nbsp;
