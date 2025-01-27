@@ -47,7 +47,7 @@ Configuration details:
 ### Private DNS animation for One Region
 This animation illustrates the DNS query and response within Hub & Spoke, and covers the following actions:
 - VM (**web01-p**) in prod Spoke VCN performs nslookup to get IP address of VM (**web02-pp**) located in the preprod Spoke VCN.
-- Prod VCN resolver chooses **'Forwarding Rules'** as a next action - 3rd item in **VCN resolver order** [VCN resolver order](#VCN-resolver-order).
+- Prod VCN resolver chooses **'Forwarding Rules'** as a next action - 3rd item in [VCN resolver order](#VCN-resolver-order).
 - Then DNS query is forwarded by **p_dns_forwarder** in prod Spoke VCN to a **hub_dns_listener** endpoint, and then DNS query is passed to the Hub VCN Resolver.
 - Hub VCN Resolver has all the DNS data/records from all the **Associated private views**, and it responds back (DNS response) to the prod VM. 
 
