@@ -21,7 +21,7 @@ This document comprises configuration views for multiple use cases:
 | VCN Resolver | A VCN dedicated private DNS resolver contains the configuration that serves responses to DNS queries within the VCN. The resolver listens on 169.254.169.254 by default. |
 | Private Zones | Private zones contain DNS data only accessible from within a VCN, such as private IP addresses. |
 | Private Views | A private DNS view is a collection of private zones, and these are:<br>• **Default Private View** - a dedicated/default view for VCN Resolver.<br>• **Associated Private Views** - the private views from other VCNs, added into VCN Resolver. |
-| Resolver Endpoints | There are two types of endpoints:<br>• **Listening endpoint** - allows the DNS Resolver to answer DNS queries coming from outside the VCN such as on-prem systems and other resolvers.<br>• **Forwarding endpoint** - allows the DNS resolver to query a remote DNS as defined in the Forwarding rules. |
+| Resolver Endpoints | There are two types of endpoints:<br>• **Listening endpoint** - allows the DNS Resolver to answer DNS queries coming from outside the VCN, such as on-prem systems and other resolvers.<br>• **Forwarding endpoint** - allows the DNS resolver to query a remote DNS as defined in the Forwarding rules. |
 | Forwarding Rules | Rules are used to answer queries that aren't answered by a resolver's views and the queries that match the rule condition will be handled by the rule. If no rules match, the query will be resolved from internet DNS. |
 
 &nbsp;
@@ -46,9 +46,9 @@ Configuration details:
 
 ### Private DNS animation for One Region
 This animation illustrates the DNS query and response within Hub & Spoke, and covers the following actions:
-- VM (**web01-p**) in prod Spoke VCN performs nslookup to get IP address of VM (**web02-pp**) located in preprod Spoke VCN.
-- Spoke's VCN resolver chooses **'Forwarding Rules'** as next action - 3rd item in **VCN resolver order**.
-- Then DNS query is forwarded by **p_dns_forwarder** in prod Spoke VCN to a **hub_dns_listener** endpoint and passed to Hub VCN Resolver.
+- VM (**web01-p**) in prod Spoke VCN performs nslookup to get IP address of VM (**web02-pp**) located in the preprod Spoke VCN.
+- Prod VCN resolver chooses **'Forwarding Rules'** as a next action - 3rd item in **VCN resolver order** [VCN resolver order](#VCN-resolver-order).
+- Then DNS query is forwarded by **p_dns_forwarder** in prod Spoke VCN to a **hub_dns_listener** endpoint, and then DNS query is passed to the Hub VCN Resolver.
 - Hub VCN Resolver has all the DNS data/records from all the **Associated private views**, and it responds back (DNS response) to the prod VM. 
 
 ### 2. Multi Region: Private DNS configuration view
