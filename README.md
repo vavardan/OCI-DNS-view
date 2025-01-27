@@ -56,7 +56,7 @@ This animations illustrate the DNS query and response within Hub & Spoke, and co
 - The DNS query is then forwarded by the **p_dns_forwarder** in the prod Spoke VCN to a **hub_dns_listener** endpoint, and then to the Hub VCN Resolver.
 - Hub VCN Resolver has all the DNS data/records from all the **Associated private views**, and it responds back (DNS response) to the prod VM.
 
-<img src="images/spoke2spoke.gif" width="600" />
+<img src="images/spoke2spoke.gif" width="700" />
 
 1. **DNS resolution within the same Spoke VCN**
 
