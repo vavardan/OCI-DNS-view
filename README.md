@@ -74,5 +74,5 @@ Summary: With this configuration inside Hub & Spoke architecture model, all VCN 
 
 ### 2. Multi Region: Private DNS configuration view
 &nbsp;
-<img src="images/two-regions.png" width="900" height="value">
+<img src="images/multi-region.png" width="900" height="value">
 
