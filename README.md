@@ -49,13 +49,14 @@ Configuration details:
 This animations illustrate the DNS query and response within Hub & Spoke, and covers the following scenarios:
 
 1. **Spoke to Spoke DNS resolution:**
-- **web01-p.ssnpweb.vcnprod.oraclevcn.com** in Prod Spoke VCN performs nslookup to get IP address of the **web02-pp.ssnppweb.vcnpreprod.oraclevcn.com** located in the Preprod Spoke VCN.
-- Prod VCN resolver goes through the [VCN resolver order](#VCN-resolver-order) list, as follows:<br>
-   • 1) Associated Private Views: there isn't any Private views associated with Prod VCN resolver, hence to the next one.<br>
-   • 2) Default Private View: here it contains only self VCN specific DNS records, so to the next one.<br>
-   • 3) Forwarding Rules: it picks this one, as it contains rule for oraclevcn.com forwarding to the **hub_dns_listener**.
-- The DNS query is then forwarded by the **p_dns_forwarder** in the prod Spoke VCN to a **hub_dns_listener** endpoint, and then to the Hub VCN Resolver.
+- **web01-p.ssnpweb.vcnprod.oraclevcn.com** in prod Spoke VCN performs nslookup to get an IP address of the **web02-pp.ssnppweb.vcnpreprod.oraclevcn.com** located in the preprod Spoke VCN.
+- Prod VCN resolver evaluates the items in the [VCN resolver order](#VCN-resolver-order) list, with the following order:<br>
+   • 1) Associated Private Views: as there is no Private views association with Prod VCN resolver, it checks the next one.<br>
+   • 2) Default Private View: here it contains only self VCN specific DNS records, and prod VCN resolver hasn't DNS record of web02-pp, hence to the next one.<br>
+   • 3) Forwarding Rules: it picks this one, as it contains rule for oraclevcn.com forwarding to the **hub_dns_listener**. 
+- The DNS query is then forwarded by the **p_dns_forwarder** in the prod Spoke VCN to a **hub_dns_listener** endpoint, and then to the Hub VCN Resolver. 
 - Hub VCN Resolver has all the DNS data/records from all the **Associated private views**, and it responds back (DNS response) to the Prod VM **web01-p**.
+- After an answer is provided, no further items are evaluated, even if the answer is negative.
 
 <img src="images/spoke2spoke.gif" width="800" />
 
@@ -64,6 +65,8 @@ This animations illustrate the DNS query and response within Hub & Spoke, and co
 <img src="images/withinspoke.gif" width="800" />
 
 3. **Internet DNS resolution**
+
+Summary: With this configuration, all VCN internal and Internet specific DNS queries will be handled by VCN specific resolver, and the domains which are defined in the Forwarding rules will be handled by the Hub VCN resolver.
 
 ### 2. Multi Region: Private DNS configuration view
 &nbsp;
