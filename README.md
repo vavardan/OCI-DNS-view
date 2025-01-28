@@ -59,9 +59,11 @@ This animations illustrate the DNS query and response within Hub & Spoke, and co
 
 <img src="images/spoke2spoke.gif" width="800" />
 
-1. **DNS resolution within the same Spoke VCN**
+2. **DNS resolution within the same Spoke VCN**
 
-2. **Internet DNS resolution**
+<img src="images/withinspoke.gif" width="800" />
+
+3. **Internet DNS resolution**
 
 ### 2. Multi Region: Private DNS configuration view
 &nbsp;
