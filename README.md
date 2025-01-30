@@ -78,6 +78,8 @@ Summary: With this configuration inside Hub & Spoke architecture model, all VCN 
 &nbsp;
 <img src="images/multi-region.png" width="900" height="value">
 
+&nbsp;
+
 ### Private DNS animation for Multi Region
 **Spoke to Spoke DNS resolution in different regions:**
 
@@ -95,5 +97,5 @@ Summary: With this configuration inside Hub & Spoke architecture model, all VCN 
 - Hub VCN Resolver in Region 2 has the required DNS data/records from all the **Associated private views**, and it returns (DNS response) the IP address of **web02-p**.
 - After an answer is provided, no further items are evaluated, even if the answer is negative.
 
-<img src="images/multi-region.gif" width="800" />
+<img src="images/multi-region.gif" width="900" />
 
