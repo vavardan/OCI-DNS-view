@@ -8,8 +8,8 @@ This configuration enables centralized management of private DNS zones within a 
 &nbsp;
 
 This document comprises configuration views for multiple use cases:
-1. Private DNS configuration view for Hub & Spoke architecture in One Region.
-2. Private DNS configuration view for Multi Regions, where Hub & Spoke VCNs are peered via Remote Peering Connection (RPC).
+1. Private DNS configuration view and animation for Hub & Spoke architecture in One Region.
+2. Private DNS configuration view and animation for Multi Region, where Hub & Spoke VCNs are peered via Remote Peering Connection (RPC).
 
 
 &nbsp;
