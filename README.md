@@ -72,6 +72,8 @@ These animations illustrate the DNS query and response within Hub & Spoke, and c
 
 Summary: With this configuration inside Hub & Spoke architecture model, all VCN internal and Internet specific DNS queries will be handled by VCN specific resolver, and the domains which are defined and included in the Forwarding rules will be handled by the Hub VCN resolver, those can be external domains as well as private zones created in OCI.
 
+&nbsp;
+
 ### 2. Multi Region: Private DNS configuration view
 &nbsp;
 <img src="images/multi-region.png" width="900" height="value">
