@@ -30,7 +30,7 @@ This document comprises configuration views for multiple use cases:
 DNS responses by VCN Resolver are processed based on the below presented order:
 &nbsp;
 
-<img src="images/resolver-order.png" width="600" height="value">
+<img src="images/resolver-order.png" width="400" height="value">
 
 &nbsp;
 
