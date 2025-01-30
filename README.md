@@ -97,5 +97,5 @@ Summary: With this configuration inside Hub & Spoke architecture model, all VCN 
 - Hub VCN Resolver in Region 2 has the required DNS data/records from all the **Associated private views**, and it returns (DNS response) the IP address of **web02-p**.
 - After an answer is provided, no further items are evaluated, even if the answer is negative.
 
-<img src="images/multi-region.gif" width="900" />
+<img src="images/multi-region.gif" width="1000" />
 
