@@ -88,11 +88,11 @@ Summary: With this configuration inside Hub & Spoke architecture model, all VCN 
    • 1) Associated Private Views: as there is no Private views association with Prod VCN resolver, it checks the next one.<br>
    • 2) Default Private View: here it contains only self VCN specific DNS records, and prod VCN resolver hasn't DNS record of **web02-p** located in Region-2, hence to the next one.<br>
    • 3) Forwarding Rules: it picks this one, as it contains rule for oraclevcn.com forwarding to the **hub_dns_listener-1** through **p_dns_forwarder-1**. 
-- The DNS query is then forwarded by the **p_dns_forwarder-1** in the prod Spoke VCN to the **hub_dns_listener-1** endpoint, and then to the Hub VCN Resolver in Region-1. +
+- The DNS query is then forwarded by the **p_dns_forwarder-1** in the prod Spoke VCN to the **hub_dns_listener-1** endpoint, and then to the Hub VCN Resolver in Region-1.
 - Hub VCN Resolver in Region-1 evaluates the items in the [VCN resolver order](#VCN-resolver-order) list, with the following order:<br>
-   • 1) Associated Private Views: those don't contain DNS records for vcnprodregion2.oraclevcn.com subdomain, so it checks the next one.<br>
-   • 2) Default Private View: here it contains only self VCN specific DNS records, hence to the next one.<br>
-   • 3) Forwarding Rules: it picks this one, as it contains rule for vcnprodregion2.oraclevcn.com forwarding to the **hub_dns_listener-2** via **hub_dns_forwarder-1**. 
+   . 1) Associated Private Views: those don't contain DNS records for vcnprodregion2.oraclevcn.com subdomain, so it checks the next one.<br>
+   . 2) Default Private View: here it contains only self VCN specific DNS records, hence to the next one.<br>
+   . 3) Forwarding Rules: it picks this one, as it contains rule for vcnprodregion2.oraclevcn.com forwarding to the **hub_dns_listener-2** via **hub_dns_forwarder-1**. 
 - The DNS query is then forwarded by the **hub_dns_forwarder-1** in the Hub VCN to the **hub_dns_listener-2** endpoint, and then to the Hub VCN Resolver in Region-2.
 - Hub VCN Resolver in Region-2 has the required DNS data/records from all the **Associated private views**, and it returns (DNS response) the IP address of **web02-p**.
 - After an answer is provided, no further items are evaluated, even if the answer is negative.
