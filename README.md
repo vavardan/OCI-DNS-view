@@ -90,7 +90,7 @@ Summary: With this configuration inside Hub & Spoke architecture model, all VCN 
    • 3) Forwarding Rules: it picks this one, as it contains rule for oraclevcn.com forwarding to the **hub_dns_listener-1** through **p_dns_forwarder-1**. 
 - The DNS query is then forwarded by the **p_dns_forwarder-1** in the prod Spoke VCN to the **hub_dns_listener-1** endpoint, and then to the Hub VCN Resolver in Region-1.
 - Hub VCN Resolver in Region-1 evaluates the items in the [VCN resolver order](#VCN-resolver-order) list, with the following order:<br>
-   • 1) Associated Private Views: those don't contain DNS records for vcnprodregion2.oraclevcn.com subdomain, so it checks the next one.<br>
+   1 • Associated Private Views: those don't contain DNS records for vcnprodregion2.oraclevcn.com subdomain, so it checks the next one.<br>
    • 2) Default Private View: here it contains only self VCN specific DNS records, hence to the next one.<br>
    • 3) Forwarding Rules: it picks this one, as it contains rule for vcnprodregion2.oraclevcn.com forwarding to the **hub_dns_listener-2** via **hub_dns_forwarder-1**. 
 - The DNS query is then forwarded by the **hub_dns_forwarder-1** in the Hub VCN to the **hub_dns_listener-2** endpoint, and then to the Hub VCN Resolver in Region-2.
