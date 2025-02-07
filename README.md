@@ -45,7 +45,7 @@ Configuration details:
 <img src="images/one-region.png" width="900" height="value">
 
 
-> [!NOTE]
+> [!NOTE]<br>
 OCI Services such as Autonomous Databases, Oracle Analytics, Streaming, Object Storage, etc, support Private Endpoints, and these services have automatic (publicly resolvable) DNS records in the Oracle owned Public Zone, such as:
 - oraclecloud.com
 - oci.customer-oci.com
