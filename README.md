@@ -60,8 +60,6 @@ Spoke VCN resolver Forwarding rules:
 
 ---
 
-&nbsp;
-
 ### Private DNS animation for One Region
 
 These animations illustrate the DNS query and response within Hub & Spoke, and covers the following scenarios:
