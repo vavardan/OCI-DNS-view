@@ -50,9 +50,9 @@ Note: OCI Services such as Autonomous Databases, Oracle Analytics, Streaming, Ob
 - oci.customer-oci.com
 
 and when Private Endpoint has been created for these services, that Endpoint gets additional DNS records entry in the Default private view for that specific VCN, in which specific subnet it has been created.
-For simplicity these domains are not depicted inside Forwarding rules in design views and animations, but to ensure correct DNS forwarding from Spoke to Hub and/or between regions, those should be included into configuration, as below presented examples:
+For simplicity these domains are not depicted inside Forwarding rules in design views and animations, but to ensure correct DNS forwarding from Spoke to Hub and/or between regions, those should be included into configuration, as presented in below examples.
 
-Hub VCN resolver Forwarding rule in Region 1, which forwards Region 2 related DNS queries to the Listener in the Region 2:
+Hub VCN resolver Forwarding rule in Region 1, which forwards Region 2 related DNS queries to the Listener in the Region 2:<br>
 <img src="images/hub_fwr.png" width="650" height="value">
 
 &nbsp;
