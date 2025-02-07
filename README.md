@@ -14,7 +14,8 @@ This document comprises configuration views for multiple use cases:
 
 &nbsp;
 
-## **OCI Private DNS resources**
+### OCI Private DNS resources
+
 | Resource | Description |
 | - | - |
 | VCN Resolver | A VCN dedicated private DNS resolver contains the configuration that serves responses to DNS queries within the VCN. The resolver listens on 169.254.169.254 by default. |
@@ -33,7 +34,7 @@ DNS responses by VCN Resolver are processed based on the below presented order:
 
 &nbsp;
 
-### 1. One Region: Private DNS configuration view
+## **1. One Region: Private DNS configuration view**
 &nbsp;
 Configuration details:
   - Hub VCN consist of the following resources and components: 
@@ -77,7 +78,7 @@ Summary: With this configuration inside Hub & Spoke architecture model, all VCN 
 
 &nbsp;
 
-### 2. Multi Region: Private DNS configuration view
+## **2. Multi Region: Private DNS configuration view**
 &nbsp;
 <img src="images/multi-region.png" width="900" height="value">
 
