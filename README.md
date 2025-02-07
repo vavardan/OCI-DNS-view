@@ -55,8 +55,6 @@ For simplicity these domains are not depicted inside Forwarding rules in design 
 Hub VCN resolver Forwarding rule in Region 1, which forwards Region 2 related DNS queries to the Listener in the Region 2:<br>
 <img src="images/hub_fwr.png" width="650" height="value">
 
-&nbsp;
-
 Spoke VCN resolver Forwarding rule:
 <img src="images/spoke_fwr.png" width="600" height="value">
 
