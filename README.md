@@ -103,7 +103,8 @@ Summary: With this configuration inside Hub & Spoke architecture model, all VCN 
 
 <img src="images/multi-region.gif" width="1000" />
 
----
+&nbsp;
+
 
 OCI Services such as Autonomous Databases, Oracle Analytics, Streaming, Object Storage, etc, support Private Endpoints, and these services have automatic (publicly resolvable) DNS records in the Oracle owned public zone, such as:
 - oraclecloud.com
@@ -115,5 +116,5 @@ For simplicity these domains are not depicted inside Forwarding rules in configu
 Hub VCN resolver Forwarding rules in Region 1, which forwards Region 2 related DNS queries to the Listener in the Region 2:<br>
 <img src="images/hub_fwr.png" width="650" height="value">
 
-Spoke VCN resolver Forwarding rules:
+Spoke VCN resolver Forwarding rules:<br>
 <img src="images/spoke_fwr.png" width="600" height="value">
