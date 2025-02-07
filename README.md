@@ -52,11 +52,11 @@ Note: OCI Services such as Autonomous Databases, Oracle Analytics, Streaming, Ob
 and when Private Endpoint has been created for these services, that Endpoint gets additional DNS records entry in the Default private view for that specific VCN, in which specific subnet it has been created.
 For simplicity these domains are not depicted inside Forwarding rules in design views and animations, but to ensure correct DNS forwarding from Spoke to Hub and/or between regions, those should be included into configuration, as below presented examples, for Hub and Spoke VCNs:
 
-<img src="images/hub_fwr.png" width="500" height="value">
+<img src="images/hub_fwr.png" width="600" height="value">
 
 &nbsp;
 
-<img src="images/spoke_fwr.png" width="500" height="value">
+<img src="images/spoke_fwr.png" width="600" height="value">
 
 ### Private DNS animation for One Region
 
