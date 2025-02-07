@@ -14,8 +14,7 @@ This document comprises configuration views for multiple use cases:
 
 &nbsp;
 
-### OCI Private DNS resources
-
+## **OCI Private DNS resources**
 | Resource | Description |
 | - | - |
 | VCN Resolver | A VCN dedicated private DNS resolver contains the configuration that serves responses to DNS queries within the VCN. The resolver listens on 169.254.169.254 by default. |
