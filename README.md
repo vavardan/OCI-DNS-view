@@ -44,6 +44,12 @@ Configuration details:
 
 <img src="images/one-region.png" width="900" height="value">
 
+
+Note: OCI Services such as Autonomous Databases, Oracle Analytics, Streaming, Object Storage support Private Endpoints, and these services have automatic (publicly resolvable) DNS records in the Oracle owned Public Zone, such as:
+- oraclecloud.com
+- oci.customer-oci.com
+and when Private Endpoint has been created for these services, that Endpoint gets additional DNS records entry in the Default private view for that specific VCN, in which specific subnet it has been created.   
+
 ### Private DNS animation for One Region
 
 These animations illustrate the DNS query and response within Hub & Spoke, and covers the following scenarios:
