@@ -58,11 +58,13 @@ Hub VCN resolver Forwarding rules in Region 1, which forwards Region 2 related D
 Spoke VCN resolver Forwarding rules:
 <img src="images/spoke_fwr.png" width="600" height="value">
 
+&nbsp;
+
 ### Private DNS animation for One Region
 
 These animations illustrate the DNS query and response within Hub & Spoke, and covers the following scenarios:
 
-2. **DNS resolution within the same Spoke VCN**
+1. **DNS resolution within the same Spoke VCN**
 - **web01-p.ssnpweb.vcnprod.oraclevcn.com** in prod Spoke VCN performs nslookup to retrieve an IP address of the **db01-p.ssnpdb.vcnprod.oraclevcn.com** database instance located in th same Spoke VCN, but in the different subnet.
 - Prod VCN resolver evaluates the items in the [VCN resolver order](#VCN-resolver-order) list, with the following order:<br>
    •1• Associated Private Views: as there is no Private views association with Prod VCN resolver, it checks the next one.<br>
@@ -72,7 +74,7 @@ These animations illustrate the DNS query and response within Hub & Spoke, and c
 
 <img src="images/withinspoke.gif" width="800" />
 
-1. **Spoke to Spoke DNS resolution:**
+2. **Spoke to Spoke DNS resolution:**
 - **web01-p.ssnpweb.vcnprod.oraclevcn.com** in prod Spoke VCN performs nslookup to get an IP address of the **web02-pp.ssnppweb.vcnpreprod.oraclevcn.com** located in the preprod Spoke VCN.
 - Prod VCN resolver evaluates the items in the [VCN resolver order](#VCN-resolver-order) list, with the following order:<br>
    •1• Associated Private Views: as there is no Private views association with Prod VCN resolver, it checks the next one.<br>
