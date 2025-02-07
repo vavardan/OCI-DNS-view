@@ -4,7 +4,7 @@
 
 &nbsp; 
 
-### Overview
+## **Overview**
 This configuration enables centralized management of private DNS zones within a Hub VCN, controlled by a central network team. All DNS configurations, including zone creation and record updates, are streamlined through a single management plane. This ensures consistency, simplifies administration and eliminates the complexity of managing DNS across multiple environments and OCI regions.
 
 &nbsp;
