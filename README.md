@@ -58,6 +58,8 @@ Hub VCN resolver Forwarding rules in Region 1, which forwards Region 2 related D
 Spoke VCN resolver Forwarding rules:
 <img src="images/spoke_fwr.png" width="600" height="value">
 
+---
+
 &nbsp;
 
 ### Private DNS animation for One Region
