@@ -80,7 +80,7 @@ Summary: With this configuration inside Hub & Spoke architecture model, all VCN 
 &nbsp;
 <img src="images/multi-region.png" width="900" height="value">
 
-&nbsp;
+---
 
 ### Private DNS animation for Multi Region
 **Spoke to Spoke DNS resolution in different regions:**
