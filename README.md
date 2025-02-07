@@ -48,7 +48,15 @@ Configuration details:
 Note: OCI Services such as Autonomous Databases, Oracle Analytics, Streaming, Object Storage support Private Endpoints, and these services have automatic (publicly resolvable) DNS records in the Oracle owned Public Zone, such as:
 - oraclecloud.com
 - oci.customer-oci.com
-and when Private Endpoint has been created for these services, that Endpoint gets additional DNS records entry in the Default private view for that specific VCN, in which specific subnet it has been created.   
+
+and when Private Endpoint has been created for these services, that Endpoint gets additional DNS records entry in the Default private view for that specific VCN, in which specific subnet it has been created.
+For simplicity these domains are not depicted inside Forwarding rules in design views and animations, but to ensure correct DNS forwarding from Spoke to Hub and/or between regions, those should be included into configuration, as below presented examples, for Hub and Spoke VCNs:
+
+<img src="images/hub_fwr.png" width="500" height="value">
+
+&nbsp;
+
+<img src="images/spoke_fwr.png" width="500" height="value">
 
 ### Private DNS animation for One Region
 
