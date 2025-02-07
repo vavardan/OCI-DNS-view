@@ -1,4 +1,3 @@
-# OCI Private DNS configuration for Hub & Spoke
 
 # **[OCI Private DNS configuration](#)**
 ## **An OCI Open LZ [Addon](#) to Tailor and Optimize Your DNS configuration**
