@@ -53,8 +53,8 @@ VCN DNS Resolver will try to answer each query by looking into the configuration
 Configuration details:
   - Hub VCN consist of the following resources and components: 
     - Forwarding (**hub_dns_forwarder**) and Listening (**hub_dns_listener**) endpoints.
-    - VCN Resolver has associated private views for Hub and Spokes VCNs, so it contains all DNS data/records of all three VCNs and can resolve any FQDN inside Hub and Spoke architecture.
-  - Spoke VCNs have Forwarding (**p_dns_forwarder** and **pp_dns_forwarder** accordingly) endpoints, and conditional forwarding rules, which forwards **oraclevcn.com** domain specific queries to the **hub_dns_listener**.
+    - Hub VCN Resolver has associated private views for Hub and Spokes VCNs, so it contains all DNS data/records of all three VCNs and can resolve any FQDN inside Hub and Spoke architecture.
+  - Spoke VCNs have Forwarding (**p_dns_forwarder** and **pp_dns_forwarder** accordingly) endpoints, and conditional forwarding rules, which forwards **oraclevcn.com**, **oraclecloud.com** and **oci.customer-oci.com** domain specific queries to the **hub_dns_listener**.
 
 <img src="images/one-region.png" width="900" height="value">
 
@@ -74,7 +74,7 @@ Additionally to the above configuration, here are the forwarding rules for the O
 
 These animations illustrate the DNS query and response within Hub & Spoke, and covers the following scenarios:
 
-#### Scenario 1. DNS resolution within the same Spoke VCN
+#### Scenario 1: DNS resolution within the same Spoke VCN
 - **web01-p.ssnpweb.vcnprod.oraclevcn.com** in prod Spoke VCN performs nslookup to retrieve an IP address of the **db01-p.ssnpdb.vcnprod.oraclevcn.com** database instance located in th same Spoke VCN, but in the different subnet.
 - Prod VCN resolver evaluates the items in the [VCN resolver order](#VCN-resolver-order) list, with the following order:<br>
    •1• Associated Private Views: as there is no Private views association with Prod VCN resolver, it checks the next one.<br>
@@ -86,7 +86,7 @@ These animations illustrate the DNS query and response within Hub & Spoke, and c
 
 &nbsp;
 
-#### Scenario 2. Spoke to Spoke DNS resolution
+#### Scenario 2:. Spoke to Spoke DNS resolution
 - **web01-p.ssnpweb.vcnprod.oraclevcn.com** in prod Spoke VCN performs nslookup to get an IP address of the **web02-pp.ssnppweb.vcnpreprod.oraclevcn.com** located in the preprod Spoke VCN.
 - Prod VCN resolver evaluates the items in the [VCN resolver order](#VCN-resolver-order) list, with the following order:<br>
    •1• Associated Private Views: as there is no Private views association with Prod VCN resolver, it checks the next one.<br>
@@ -103,6 +103,13 @@ Summary: With this configuration inside Hub & Spoke architecture model, all VCN 
 &nbsp;
 
 ## **2. Multi Region: Private DNS configuration view**
+Configuration details:
+  - Each Hub VCN in a specific region consist of the following resources and components: 
+    - Forwarding (**hub_dns_forwarder-(1/2)**) and Listening (**hub_dns_listener-(1/2)**) endpoints.
+    - Hub VCN Resolver has associated private views for Hub and Spokes VCNs, so it contains all DNS data/records of all three VCNs and can resolve any FQDN inside Hub and Spoke architecture.
+    - Hub VCN resolvers have conditional forwarding rules, to forward region specific DNS zones to the appropriate region. 
+  - Spoke VCN resolvers have Forwarding endpoints, and conditional forwarding rules, which forwards **oraclevcn.com**, **oraclecloud.com** and **oci.customer-oci.com** domain specific queries to the **hub_dns_listener-(1/2)**.
+
 &nbsp;
 <img src="images/multi-region.png" width="900" height="value">
 
