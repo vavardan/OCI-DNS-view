@@ -11,7 +11,8 @@
 - [3. VCN Resolver order](#VCN-Resolver-order)</br>
 - [4. One Region: Private DNS configuration view](#1-One-Region-Private-DNS-configuration-view)</br>
   - [4.1. Private DNS animation](#One-Region-Private-DNS-animation)</br>
-- [5. Deploy](#5-deploy)</br>
+- [5. Multi Region: Private DNS configuration view](#2-Multi-Region-Private-DNS-configuration-view)</br>
+  - [5.1. Multi Region: Private DNS animation](#Multi-Region-Private-DNS-animation)
 
 ## **Overview**
 This configuration enables centralized management of private DNS zones within a Hub VCN, controlled by a central network team. All DNS configurations, including zone creation and record updates, are streamlined through a single management plane. This ensures consistency, simplifies administration and eliminates the complexity of managing DNS across multiple environments and OCI regions.
@@ -105,7 +106,7 @@ Summary: With this configuration inside Hub & Spoke architecture model, all VCN 
 
 &nbsp;
 
-## Private DNS animation for Multi Region
+## Multi Region: Private DNS animation
 **Spoke to Spoke DNS resolution in different regions:**
 
 - **web01-p.ssnpweb.vcnprodregion1.oraclevcn.com** in Spoke VCN (Region-1) performs nslookup to get an IP address of the **web02-p.ssnpweb.vcnprodregion2.oraclevcn.com** located in Region-2 inside Prod VCN.
