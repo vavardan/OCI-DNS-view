@@ -20,8 +20,8 @@
 This configuration enables centralized management of private DNS zones within a Hub VCN, controlled by a central network team. All DNS configurations, including zone creation and record updates, are streamlined through a single management plane. This ensures consistency, simplifies administration and eliminates the complexity of managing DNS across multiple environments and OCI regions.
 
 This document provides configuration views for the following use cases:</br>
-   - Single-Region: Private DNS configuration view and animation for a Hub and Spoke architecture within one OCI region.
-   - Multi-Region: Private DNS configuration view and animation for a setup where Hub & Spoke VCNs are connected via Remote Peering Connection (RPC).
+- Single-Region: Private DNS configuration view and animation for a Hub and Spoke architecture within one OCI region.
+- Multi-Region: Private DNS configuration view and animation for a setup where Hub & Spoke VCNs are connected via Remote Peering Connection (RPC).
 
 
 &nbsp;
@@ -78,8 +78,8 @@ These animations illustrate the DNS query and response within Hub & Spoke, and c
 #### Scenario 1: DNS resolution within the same Spoke VCN
 - The **web01-p.ssnpweb.vcnprod.oraclevcn.com** instance in prod Spoke VCN performs a nslookup to retrieve an IP address of the **db01-p.ssnpdb.vcnprod.oraclevcn.com** database instance, which is located in the same Spoke VCN but in a different subnet.
 - Prod VCN resolver evaluates the query based on the [VCN DNS Resolver query processing order](#VCN-DNS-Resolver-query-processing-order) as follows:<br>
-   •1• **Associated Private Views** - Since no Private view is associated with the Prod VCN resolver, it proceeds to the next step.<br>
-   •2• **Default Private View** - The default private view contains a DNS record for the database, so the resolver retrieves the record.
+   ⓵ **Associated Private Views** - Since no Private view is associated with the Prod VCN resolver, it proceeds to the next step.<br>
+   ⓶ **Default Private View** - The default private view contains a DNS record for the database, so the resolver retrieves the record.
 - The Prod VCN resolver returns the DNS response to **web01-p**.
 
 <img src="images/withinspoke.gif" width="800" />
@@ -89,9 +89,9 @@ These animations illustrate the DNS query and response within Hub & Spoke, and c
 #### Scenario 2:. Spoke to Spoke DNS resolution
 - The **web01-p.ssnpweb.vcnprod.oraclevcn.com** in prod Spoke VCN performs a nslookup to retrieve the IP address of **web02-pp.ssnppweb.vcnpreprod.oraclevcn.com**, located in the preprod Spoke VCN.
 - Prod VCN resolver evaluates the query based on the [VCN DNS Resolver query processing order](#VCN-DNS-Resolver-query-processing-order) as follows:<br>
-   •1• **Associated Private Views** - Since no Private view is associated with the Prod VCN resolver, it moves to the next option.<br>
-   •2• **Default Private View** – This view contains only DNS records specific to the Prod VCN. Since the resolver does not have a record for **web02-pp**, it proceeds to the next step.<br>
-   •3• **Forwarding Rules** – The resolver identifies a forwarding rule for **oraclevcn.com**, directing the query to the **hub_dns_listener** through the **p_dns_forwarder** in the Prod Spoke VCN.
+   ⓵ **Associated Private Views** - Since no Private view is associated with the Prod VCN resolver, it moves to the next option.<br>
+   ⓶ **Default Private View** – This view contains only DNS records specific to the Prod VCN. Since the resolver does not have a record for **web02-pp**, it proceeds to the next step.<br>
+   ⓷ **Forwarding Rules** – The resolver identifies a forwarding rule for **oraclevcn.com**, directing the query to the **hub_dns_listener** through the **p_dns_forwarder** in the Prod Spoke VCN.
 - The Hub VCN Resolver has all DNS data/records from the **Associated Private views**, processes the query and returns the DNS response to **web01-p** in the Prod Spoke VCN.
 
 <img src="images/spoke2spoke.gif" width="800" />
@@ -150,8 +150,7 @@ This Private DNS configuration in a Hub and Spoke architecture ensures that all 
 
 &nbsp; 
 
-# License
-
+#### License
 Copyright (c) 2025 Oracle and/or its affiliates.
 
 Licensed under the Universal Permissive License (UPL), Version 1.0.
