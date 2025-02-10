@@ -10,7 +10,7 @@
 [2. OCI Private DNS resources](#OCI-Private-DNS-resources)</br>
 [3. VCN Resolver order](#VCN-Resolver-order)</br>
 [4. One Region: Private DNS configuration view](#1-One-Region-Private-DNS-configuration-view)</br>
-  [4.1. Compartments](#Private-DNS-animation-for-One-Region)</br>
+  - [4.1. Private DNS animation](#One-Region-Private-DNS-animation)</br>
 [5. Deploy](#5-deploy)</br>
 
 ## **Overview**
@@ -65,11 +65,11 @@ Additionally to the above configuration, here are the forwarding rules for the O
 
 &nbsp;
 
-## Private DNS animation for One Region
+## One Region: Private DNS animation
 
 These animations illustrate the DNS query and response within Hub & Spoke, and covers the following scenarios:
 
-#### 1. DNS resolution within the same Spoke VCN
+#### Scenario 1. DNS resolution within the same Spoke VCN
 - **web01-p.ssnpweb.vcnprod.oraclevcn.com** in prod Spoke VCN performs nslookup to retrieve an IP address of the **db01-p.ssnpdb.vcnprod.oraclevcn.com** database instance located in th same Spoke VCN, but in the different subnet.
 - Prod VCN resolver evaluates the items in the [VCN resolver order](#VCN-resolver-order) list, with the following order:<br>
    •1• Associated Private Views: as there is no Private views association with Prod VCN resolver, it checks the next one.<br>
@@ -81,7 +81,7 @@ These animations illustrate the DNS query and response within Hub & Spoke, and c
 
 &nbsp;
 
-#### 2. Spoke to Spoke DNS resolution
+#### Scenario 2. Spoke to Spoke DNS resolution
 - **web01-p.ssnpweb.vcnprod.oraclevcn.com** in prod Spoke VCN performs nslookup to get an IP address of the **web02-pp.ssnppweb.vcnpreprod.oraclevcn.com** located in the preprod Spoke VCN.
 - Prod VCN resolver evaluates the items in the [VCN resolver order](#VCN-resolver-order) list, with the following order:<br>
    •1• Associated Private Views: as there is no Private views association with Prod VCN resolver, it checks the next one.<br>
