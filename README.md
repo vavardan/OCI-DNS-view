@@ -39,11 +39,13 @@ This document provides configuration views for the following use cases:</br>
 &nbsp;
 
 ### VCN DNS Resolver query processing order
-The VCN DNS resolver processes queries in the priority order presented below. It attempts to resolve each query by sequentially checking the configured options. After an answer is provided, no further items are evaluated, even if the answer is negative.
+The VCN DNS resolver processes queries in the priority order presented below. It attempts to resolve each query by sequentially checking the configured options. 
 
 &nbsp;
 
 <img src="images/resolver-order.png" width="500" height="value">
+
+After an answer is provided, no further items are evaluated, even if the answer is negative.
 
 &nbsp;
 
