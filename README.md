@@ -122,4 +122,4 @@ Summary: With this configuration inside Hub & Spoke architecture model, all VCN 
 >- oraclecloud.com
 >- oci.customer-oci.com
 >
->and when Private Endpoint is being created for these services, that Endpoint gets additional DNS records entry in the Default private view for that specific VCN, in which specific subnet it has been created, to make it possible to resolve and get a private IP address of the endpoint within VCN.
+>and when Private Endpoint is being created for these services, that Endpoint gets additional DNS records entry in the Default private view for that specific VCN, in which specific subnet it has been created, to make it possible to resolve and get a private IP address of the endpoint within VCN. For simplicity these domains are not depicted inside Forwarding rules in animations, but are presented in configuration views.
