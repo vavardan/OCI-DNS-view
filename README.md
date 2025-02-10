@@ -10,7 +10,7 @@
 [2. OCI Private DNS resources](#OCI-Private-DNS-resources)</br>
 [3. VCN Resolver order](#VCN-Resolver-order)</br>
 [4. One Region: Private DNS configuration view](#1-One-Region-Private-DNS-configuration-view)</br>
-  - [4.1. Private DNS animation](#One-Region-Private-DNS-animation)
+    [4.1. Private DNS animation](#One-Region-Private-DNS-animation)</br>
 [5. Deploy](#5-deploy)</br>
 
 ## **Overview**
