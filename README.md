@@ -47,9 +47,9 @@ Configuration details:
 &nbsp;
 
 DNS configuration with On-Premise connected.
-Additionally to the above configuration, here should be forwarding rules for the On-Premise DNS zones in each Spoke VCN and also in Hub VCN, pointing to Network Load Balancer (NLB), as the target of the forwarding rule, this is in case . The **DNS NLB** have the On-Premise DNS servers as backends.  
+Additionally to the above configuration, here are the forwarding rules for the On-Premise DNS zones in each Spoke VCN and also in Hub VCN, pointing to Network Load Balancer (NLB), as the target of the forwarding rule, and the **DNS NLB** have the On-Premise DNS servers as backends.  
 
-<img src="images/oneprem.png" width="900" height="value">
+<img src="images/onprem.png" width="900" height="value">
 
 ---
 
