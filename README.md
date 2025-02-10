@@ -8,8 +8,8 @@
 
 [1. Overview](#Overview)</br>
 [2. OCI Private DNS resources](#OCI-Private-DNS-resources)</br>
-[3. Specifications and Considerations](#3-specifications-and-considerations)</br>
-[4. Routing](#4-routing)</br>
+[3. VCN Resolver order](#VCN-Resolver-order)</br>
+[4. One Region: Private DNS configuration view](#1.-One-Region:-Private-DNS-configuration-view)</br>
 [5. Deploy](#5-deploy)</br>
 
 ## **Overview**
