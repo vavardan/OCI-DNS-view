@@ -117,10 +117,9 @@ Summary: With this configuration inside Hub & Spoke architecture model, all VCN 
 
 &nbsp;
 
-
-##### Note:
-OCI Services such as Autonomous Databases, Oracle Analytics, Streaming, Object Storage, etc, support Private Endpoints, and these services have automatic (publicly resolvable) DNS records in the Oracle owned public zone, such as:
-- oraclecloud.com
-- oci.customer-oci.com
-
-and when Private Endpoint is being created for these services, that Endpoint gets additional DNS records entry in the Default private view for that specific VCN, in which specific subnet it has been created, to make it possible to resolve and get a private IP address of the endpoint within VCN.
+> [!NOTE]
+>OCI Services such as Autonomous Databases, Oracle Analytics, Streaming, Object Storage, etc, support Private Endpoints, and these services have automatic (publicly resolvable) DNS records in the Oracle owned public zone, such as:
+>- oraclecloud.com
+>- oci.customer-oci.com
+>
+>and when Private Endpoint is being created for these services, that Endpoint gets additional DNS records entry in the Default private view for that specific VCN, in which specific subnet it has been created, to make it possible to resolve and get a private IP address >of the endpoint within VCN.
