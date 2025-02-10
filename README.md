@@ -10,7 +10,7 @@
 - [OCI Private DNS resources](#OCI-Private-DNS-resources)</br>
 - [VCN DNS Resolver processing order](#VCN-DNS-Resolver-processing-order)</br>
 - [Single-Region: Private DNS configuration view](#1-Single-Region-Private-DNS-configuration-view)</br>
-  - [Single-Region: Private DNS animations](#Single-Region-Private-DNS-animations)</br>
+  - [Single-Region: Private DNS animation](#Single-Region-Private-DNS-animation)</br>
 - [Multi-Region: Private DNS configuration view](#2-Multi-Region-Private-DNS-configuration-view)</br>
   - [Multi-Region: Private DNS animation](#Multi-Region-Private-DNS-animation)
 
@@ -62,7 +62,7 @@ Configuration details:
 &nbsp;
 
 #### DNS configuration with On-Premise connectivity:
-In addition to the above configuration, the following setup includes forwarding rules for On-Premises DNS zones in both the Spoke VCNs and the Hub VCN. These rules direct queries to a Network Load Balancer (NLB), which serves as the target for forwarding. The On-Premises DNS servers are configured as backends for the DNS NLB.
+In addition to the above configuration, the following setup includes forwarding rules for On-Premises DNS zones in both - the Spoke VCNs and the Hub VCN. These rules direct queries to a Network Load Balancer (NLB), which serves as the target for forwarding. The On-Premises DNS servers are configured as backends for the DNS NLB.
 
 <img src="images/onprem.png" width="900" height="value">
 
@@ -71,7 +71,7 @@ In addition to the above configuration, the following setup includes forwarding 
 
 &nbsp;
 
-## Single-Region: Private DNS animations
+## Single-Region: Private DNS animation
 
 These animations illustrate the DNS query and response within Hub & Spoke, and covers the following scenarios:
 
