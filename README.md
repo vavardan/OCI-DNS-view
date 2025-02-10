@@ -141,8 +141,10 @@ Configuration details:
 > When a Private Endpoint is created for one of these services, an additional DNS record is automatically added to the Default Private View of the specific VCN where the endpoint's subnet resides. This allows the private IP address of the endpoint to be resolved within the VCN.<br>
 > For simplicity, these domains are not explicitly depicted in Forwarding Rules within the animations but are included in the configuration views.
 
+&nbsp;
+
 #### Summary
-This Private DNS configuration in a Hub and Spoke architecture ensures that all VCN-internal and Internet-specific DNS queries are handled by their respective VCN Resolvers. Meanwhile, Oracle-specific domains, On-Premises zones, and custom-created domains are handled and managed by the Hub VCN Resolver. This approach streamlines DNS management and maintains a consistent, scalable architecture across the OCI environment, including multi-region deployments.
+This Private DNS configuration in a Hub and Spoke architecture ensures that all VCN-internal and Internet-specific DNS queries are handled by their respective VCN Resolvers. Meanwhile, Oracle-specific domains, On-Premises zones, and custom-created domains are handled and managed by the Hub VCN Resolver. This approach streamlines DNS management and maintains a consistent, scalable architecture across the OCI environment, either in single-region or multi-region deployments.
 
 
 
