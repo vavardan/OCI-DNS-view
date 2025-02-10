@@ -134,7 +134,7 @@ Configuration details:
 &nbsp;
 
 > [!NOTE]
->OCI services such as Autonomous Databases, Oracle Analytics, Streaming, Object Storage, and others support Private Endpoints. These services have automatically generated, publicly resolvable DNS records within Oracle-owned public zones, such as:
+>OCI services such as Autonomous Databases, Oracle Analytics, Streaming, Object Storage, and others support Private Endpoints. These services have automatically generated, publicly resolvable DNS records within Oracle-owned public domains, such as:
 >- oraclecloud.com
 >- oci.customer-oci.com
 >
@@ -144,7 +144,7 @@ Configuration details:
 &nbsp;
 
 #### Summary
-This Private DNS configuration in a Hub and Spoke architecture ensures that all VCN-internal and Internet-specific DNS queries are handled by their respective VCN Resolvers. Meanwhile, Oracle-specific domains, On-Premises zones, and custom-created domains are handled and managed by the Hub VCN Resolver. This approach streamlines DNS management and maintains a consistent, scalable architecture across the OCI environment, either in single-region or multi-region deployments.
+This Private DNS configuration in a Hub and Spoke architecture ensures that all VCN-internal and Internet-specific DNS queries are handled by their respective VCN Resolvers. Meanwhile, Oracle-specific domains, On-Premises zones, and custom-created domains are handled and managed by the Hub VCN Resolver. This approach optimizes DNS management and supports a consistent, scalable architecture across OCI environments, in both single-region and multi-region deployments.
 
 
 
