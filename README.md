@@ -9,10 +9,10 @@
 - [1. Overview](#Overview)</br>
 - [2. OCI Private DNS resources](#OCI-Private-DNS-resources)</br>
 - [3. VCN DNS Resolver query processing order](#VCN-DNS-Resolver-query-processing-order)</br>
-- [4. One Region: Private DNS configuration view](#1-One-Region-Private-DNS-configuration-view)</br>
-  - [4.1. Private DNS animation](#One-Region-Private-DNS-animation)</br>
-- [5. Multi Region: Private DNS configuration view](#2-Multi-Region-Private-DNS-configuration-view)</br>
-  - [5.1. Multi Region: Private DNS animation](#Multi-Region-Private-DNS-animation)
+- [4. Single-Region: Private DNS configuration view](#1-Single-Region-Private-DNS-configuration-view)</br>
+  - [4.1. Single-Region: Private DNS animation](#Single-Region-Private-DNS-animation)</br>
+- [5. Multi-Region: Private DNS configuration view](#2-Multi-Region-Private-DNS-configuration-view)</br>
+  - [5.1. Multi-Region: Private DNS animation](#Multi-Region-Private-DNS-animation)
 
 &nbsp;
 
@@ -91,7 +91,7 @@ These animations illustrate the DNS query and response within Hub & Spoke, and c
 - Prod VCN resolver evaluates the query based on the [VCN DNS Resolver query processing order](#VCN-DNS-Resolver-query-processing-order) as follows:<br>
    •1• **Associated Private Views** - Since no Private view is associated with the Prod VCN resolver, it moves to the next option.<br>
    •2• **Default Private View** – This view contains only DNS records specific to the Prod VCN. Since the resolver does not have a record for **web02-pp**, it proceeds to the next step.<br>
-   •3• **Forwarding Rules** – The resolver identifies a rule for **oraclevcn.com**, directing the query to the **hub_dns_listener** through the **p_dns_forwarder** in the Prod Spoke VCN.
+   •3• **Forwarding Rules** – The resolver identifies a forwarding rule for **oraclevcn.com**, directing the query to the **hub_dns_listener** through the **p_dns_forwarder** in the Prod Spoke VCN.
 - The Hub VCN Resolver has all DNS data/records from the **Associated Private views**, processes the query and returns the DNS response to **web01-p** in the Prod Spoke VCN.
 
 <img src="images/spoke2spoke.gif" width="800" />
@@ -143,3 +143,15 @@ Configuration details:
 
 #### Summary
 This Private DNS configuration in a Hub and Spoke architecture ensures that all VCN-internal and Internet-specific DNS queries are handled by their respective VCN Resolvers. Meanwhile, Oracle-specific domains, On-Premises zones, and custom-created domains are handled and managed by the Hub VCN Resolver. This approach streamlines DNS management and maintains a consistent, scalable architecture across the OCI environment, including multi-region deployments.
+
+
+
+&nbsp; 
+
+# License
+
+Copyright (c) 2025 Oracle and/or its affiliates.
+
+Licensed under the Universal Permissive License (UPL), Version 1.0.
+
+See [LICENSE](/LICENSE.txt) for more details.
