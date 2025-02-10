@@ -6,12 +6,12 @@
 
 **Table of Contents**
 
-[1. Overview](#Overview)</br>
-[2. OCI Private DNS resources](#OCI-Private-DNS-resources)</br>
-[3. VCN Resolver order](#VCN-Resolver-order)</br>
-[4. One Region: Private DNS configuration view](#1-One-Region-Private-DNS-configuration-view)</br>
-    [4.1. Private DNS animation](#One-Region-Private-DNS-animation)</br>
-[5. Deploy](#5-deploy)</br>
+- [1. Overview](#Overview)</br>
+- [2. OCI Private DNS resources](#OCI-Private-DNS-resources)</br>
+- [3. VCN Resolver order](#VCN-Resolver-order)</br>
+- [4. One Region: Private DNS configuration view](#1-One-Region-Private-DNS-configuration-view)</br>
+  - [4.1. Private DNS animation](#One-Region-Private-DNS-animation)</br>
+- [5. Deploy](#5-deploy)</br>
 
 ## **Overview**
 This configuration enables centralized management of private DNS zones within a Hub VCN, controlled by a central network team. All DNS configurations, including zone creation and record updates, are streamlined through a single management plane. This ensures consistency, simplifies administration and eliminates the complexity of managing DNS across multiple environments and OCI regions.
