@@ -8,7 +8,7 @@
 
 - [1. Overview](#Overview)</br>
 - [2. OCI Private DNS resources](#OCI-Private-DNS-resources)</br>
-- [3. VCN Resolver order](#VCN-Resolver-order)</br>
+- [3. VCN DNS Resolver query processing order](#VCN-DNS-Resolver-query-processing-order)</br>
 - [4. One Region: Private DNS configuration view](#1-One-Region-Private-DNS-configuration-view)</br>
   - [4.1. Private DNS animation](#One-Region-Private-DNS-animation)</br>
 - [5. Multi Region: Private DNS configuration view](#2-Multi-Region-Private-DNS-configuration-view)</br>
@@ -19,9 +19,9 @@
 ## **Overview**
 This configuration enables centralized management of private DNS zones within a Hub VCN, controlled by a central network team. All DNS configurations, including zone creation and record updates, are streamlined through a single management plane. This ensures consistency, simplifies administration and eliminates the complexity of managing DNS across multiple environments and OCI regions.
 
-This document comprises configuration views for multiple use cases:
-1. Private DNS configuration view and animation for Hub & Spoke architecture in One Region.
-2. Private DNS configuration view and animation for Multi Region, where Hub & Spoke VCNs are peered via Remote Peering Connection (RPC).
+This document provides configuration views for the following use cases:
+- Single-Region Deployment: Private DNS configuration view and animation for a Hub and Spoke architecture within one OCI region.
+- Multi-Region Deployment: Private DNS configuration view and animation for a setup where Hub & Spoke VCNs are interconnected via Remote Peering Connection (RPC).
 
 
 &nbsp;
@@ -34,13 +34,12 @@ This document comprises configuration views for multiple use cases:
 | Private Zones | Private zones contain DNS data only accessible from within a VCN, such as private IP addresses. |
 | Private Views | A private DNS view is a collection of private zones, and these are:<br>• **Default Private View** - a dedicated/default view for VCN Resolver.<br>• **Associated Private Views** - the private views from other VCNs, added into VCN Resolver. |
 | Resolver Endpoints | There are two types of endpoints:<br>• **Listening endpoint** - allows the DNS Resolver to answer DNS queries coming from outside the VCN, such as on-prem systems and other resolvers.<br>• **Forwarding endpoint** - allows the DNS resolver to query a remote DNS as defined in the Forwarding rules. |
-| Forwarding Rules | Rules are used to answer queries that aren't answered by a resolver's views and the queries that match the rule condition will be handled by the rule. If no rules match, the query will be resolved from internet DNS. |
+| Forwarding Rules | Rules are used to answer queries that aren't answered by a resolver's views and the queries that match the rule condition will be handled by the rule. If no rules match, the query will be resolved from Internet DNS. |
 
 &nbsp;
 
-### VCN Resolver order 
-VCN DNS resolver answers each query based on the presented order:
-VCN DNS Resolver will try to answer each query by looking into the configuration, with different priorities, as shown below:
+### VCN DNS Resolver query processing order
+The VCN DNS resolver processes queries in the priority order presented below. It attempts to resolve each query by sequentially checking the configured options. After an answer is provided, no further items are evaluated, even if the answer is negative.
 
 &nbsp;
 
@@ -48,20 +47,22 @@ VCN DNS Resolver will try to answer each query by looking into the configuration
 
 &nbsp;
 
-## **1. One Region: Private DNS configuration view**
+## **1. Single-Region: Private DNS configuration view**
 &nbsp;
 Configuration details:
-  - Hub VCN consist of the following resources and components: 
+  - Hub VCN consists of the following resources and components: 
     - Forwarding (**hub_dns_forwarder**) and Listening (**hub_dns_listener**) endpoints.
-    - Hub VCN Resolver has associated private views for Hub and Spokes VCNs, so it contains all DNS data/records of all three VCNs and can resolve any FQDN inside Hub and Spoke architecture.
-  - Spoke VCN resolvers have Forwarding (**p_dns_forwarder** and **pp_dns_forwarder** accordingly) endpoints, and conditional forwarding rules, which forwards **oraclevcn.com**, **oraclecloud.com** and **oci.customer-oci.com** domain specific queries to the **hub_dns_listener**.
+    - Hub VCN Resolver has Associated private views for Hub and Spokes VCNs. As a result, it contains all DNS data/records for the three VCNs and can resolve any FQDN within the Hub and Spoke architecture.
+  - Spoke VCN Resolvers include
+    - Forwarding endpoints (**p_dns_forwarder** and **pp_dns_forwarder** respectively).
+    - Conditional forwarding rules, that directs queries for **oraclevcn.com**, **oraclecloud.com** and **oci.customer-oci.com** domains to the **hub_dns_listener** for resolution.
 
 <img src="images/one-region.png" width="900" height="value">
 
 &nbsp;
 
-#### DNS configuration with On-Premise connected.<br>
-Additionally to the above configuration, here are the forwarding rules for the On-Premise DNS zones in each Spoke VCN and also in Hub VCN, pointing to Network Load Balancer (NLB), as the target of the forwarding rule. On-Premise DNS servers are configured as a the backends for a **DNS NLB**.  
+#### DNS configuration with On-Premise connectivity.
+In addition to the above configuration, the following setup includes forwarding rules for On-Premises DNS zones in both the Spoke VCNs and the Hub VCN. These rules direct queries to a Network Load Balancer (NLB), which serves as the target for forwarding. The On-Premises DNS servers are configured as backends for the DNS NLB.
 
 <img src="images/onprem.png" width="900" height="value">
 
@@ -70,7 +71,7 @@ Additionally to the above configuration, here are the forwarding rules for the O
 
 &nbsp;
 
-## One Region: Private DNS animation
+## Single-Region: Private DNS animation
 
 These animations illustrate the DNS query and response within Hub & Spoke, and covers the following scenarios:
 
