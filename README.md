@@ -117,30 +117,28 @@ Configuration details:
 
 &nbsp;
 
-## Multi Region: Private DNS animation
-**Spoke to Spoke DNS resolution in different regions:**
+## Multi-Region: Private DNS animation
+**Spoke to Spoke DNS Resolution across different regions:**
 
-- **web01-p.ssnpweb.vcnprodregion1.oraclevcn.com** in Spoke VCN (Region-1) performs nslookup to get an IP address of the **web02-p.ssnpweb.vcnprodregion2.oraclevcn.com** located in Region-2 inside Prod VCN.
-- Prod VCN resolver in Region-1 evaluates the items in the [VCN resolver order](#VCN-resolver-order) list, with the following order:<br>
-    •1• Associated Private Views: as there is no Private views association with Prod VCN resolver, it checks the next one.<br>
-    •2• Default Private View: here it contains only self VCN specific DNS records, and prod VCN resolver hasn't DNS record of **web02-p** located in Region-2, hence to the next one.<br>
-    •3• Forwarding Rules: it picks this one, as it contains rule for **oraclevcn.com** forwarding to the **hub_dns_listener-1** through **p_dns_forwarder-1** endpoint. 
-- The DNS query is then forwarded by the **p_dns_forwarder-1** in the prod Spoke VCN to the **hub_dns_listener-1** endpoint, and then to the Hub VCN Resolver in Region-1.
-- Hub VCN Resolver in Region-1 evaluates the items in the [VCN resolver order](#VCN-resolver-order) list, with the following order:<br>
-    •1• Associated Private Views: those don't contain DNS records for **vcnprodregion2.oraclevcn.com** subdomain, so it checks the next one.<br>
-    •2• Default Private View: here it contains only self VCN specific DNS records, hence to the next one.<br>
-    •3• Forwarding Rules: it picks this one, as it contains rule for **vcnprodregion2.oraclevcn.com** forwarding to the **hub_dns_listener-2** via **hub_dns_forwarder-1** endpoint. 
-- The DNS query is then forwarded by the **hub_dns_forwarder-1** in the Hub VCN to the **hub_dns_listener-2** endpoint, and then to the Hub VCN Resolver in Region-2.
-- Hub VCN Resolver in Region-2 has the required DNS records from all the **Associated private views**, and it returns (DNS response) the IP address of **web02-p**.
-- After an answer is provided, no further items are evaluated, even if the answer is negative.
+- The **web01-p.ssnpweb.vcnprodregion1.oraclevcn.com** in Spoke VCN (Region-1) performs nslookup to get an IP address of the **web02-p.ssnpweb.vcnprodregion2.oraclevcn.com** located in Region-2 inside Prod VCN.
+- Prod VCN resolver evaluates the query based on the [VCN DNS Resolver query processing order](#VCN-DNS-Resolver-query-processing-order) as follows:<br>
+    •1• **Associated Private Views** – Since no private view is associated with the Prod VCN Resolver, it proceeds to the next step.<br>
+    •2• **Default Private View** – This view contains only DNS records specific to the local VCN. Since the resolver does not have a record for **web02-p** in Region-2, it moves to the next step.<br>
+    •3• **Forwarding Rules** – A forwarding rule for **oraclevcn.com** is found, directing the DNS query to **hub_dns_listener-1** through **p_dns_forwarder-1** endpoint, and subsequently to the Hub VCN Resolver in Region-1. 
+- A Hub VCN Resolver in Region-1 evaluates the query based on the [VCN DNS Resolver query processing order](#VCN-DNS-Resolver-query-processing-order) as follows:<br>
+    •1• **Associated Private Views** - These views do not contain records for the **vcnprodregion2.oraclevcn.com** subdomain, so it moves to the next step.<br>
+    •2• **Default Private View** - This view contains only region-specific VCN records, so it proceeds to the next step.<br>
+    •3• **Forwarding Rules** - A rule for **vcnprodregion2.oraclevcn.com** is found, forwarding the DNS query to **hub_dns_listener-2** via **hub_dns_forwarder-1**. Which then sends it to the Hub VCN Resolver in Region-2. 
+- Hub VCN Resolver in Region-2 has the required DNS records from all the **Associated Private views**, and returns the IP address of **web02-p** as the DNS response.
 
 <img src="images/multi-region.gif" width="1000" />
 
 &nbsp;
 
 > [!NOTE]
->OCI Services such as Autonomous Databases, Oracle Analytics, Streaming, Object Storage, etc, support Private Endpoints, and these services have automatic (publicly resolvable) DNS records in the Oracle owned public zone, such as:
+>OCI services such as Autonomous Databases, Oracle Analytics, Streaming, Object Storage, and others support Private Endpoints. These services have automatically generated, publicly resolvable DNS records within Oracle-owned public zones, such as:
 >- oraclecloud.com
 >- oci.customer-oci.com
 >
->and when Private Endpoint is being created for these services, that Endpoint gets additional DNS records entry in the Default private view for that specific VCN, in which specific subnet it has been created, to make it possible to resolve and get a private IP address of the endpoint within VCN. For simplicity these domains are not depicted inside Forwarding rules in animations, but are presented in configuration views.
+> When a Private Endpoint is created for one of these services, an additional DNS record is automatically added to the Default Private View of the specific VCN where the endpoint's subnet resides. This allows the private IP address of the endpoint to be resolved within the VCN.
+> For simplicity, these domains are not explicitly depicted in Forwarding Rules in the animations but are included in the configuration views.
