@@ -39,7 +39,9 @@ This document comprises configuration views for multiple use cases:
 &nbsp;
 
 ### VCN Resolver order 
-DNS responses by VCN Resolver are processed based on the below presented order:
+VCN DNS resolver answers each query based on the presented order:
+VCN DNS Resolver will try to answer each query by looking into the configuration, with different priorities, as shown below:
+
 &nbsp;
 
 <img src="images/resolver-order.png" width="500" height="value">
