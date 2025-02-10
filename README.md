@@ -141,4 +141,4 @@ Configuration details:
 >- oci.customer-oci.com
 >
 > When a Private Endpoint is created for one of these services, an additional DNS record is automatically added to the Default Private View of the specific VCN where the endpoint's subnet resides. This allows the private IP address of the endpoint to be resolved within the VCN.<br>
-> For simplicity, these domains are not explicitly depicted in Forwarding Rules in the animations but are included in the configuration views.
+> For simplicity, these domains are not explicitly depicted in Forwarding Rules within the animations but are included in the configuration views.
