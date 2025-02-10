@@ -72,7 +72,7 @@ These animations illustrate the DNS query and response within Hub & Spoke, and c
 
 &nbsp;
 
-2. **Spoke to Spoke DNS resolution:**
+#### 2. Spoke to Spoke DNS resolution
 - **web01-p.ssnpweb.vcnprod.oraclevcn.com** in prod Spoke VCN performs nslookup to get an IP address of the **web02-pp.ssnppweb.vcnpreprod.oraclevcn.com** located in the preprod Spoke VCN.
 - Prod VCN resolver evaluates the items in the [VCN resolver order](#VCN-resolver-order) list, with the following order:<br>
    •1• Associated Private Views: as there is no Private views association with Prod VCN resolver, it checks the next one.<br>
@@ -92,9 +92,11 @@ Summary: With this configuration inside Hub & Spoke architecture model, all VCN 
 &nbsp;
 <img src="images/multi-region.png" width="900" height="value">
 
----
+&nbsp;
 
-### Private DNS animation for Multi Region
+&nbsp;
+
+## Private DNS animation for Multi Region
 **Spoke to Spoke DNS resolution in different regions:**
 
 - **web01-p.ssnpweb.vcnprodregion1.oraclevcn.com** in Spoke VCN (Region-1) performs nslookup to get an IP address of the **web02-p.ssnpweb.vcnprodregion2.oraclevcn.com** located in Region-2 inside Prod VCN.
@@ -116,15 +118,9 @@ Summary: With this configuration inside Hub & Spoke architecture model, all VCN 
 &nbsp;
 
 
+##### Note:
 OCI Services such as Autonomous Databases, Oracle Analytics, Streaming, Object Storage, etc, support Private Endpoints, and these services have automatic (publicly resolvable) DNS records in the Oracle owned public zone, such as:
 - oraclecloud.com
 - oci.customer-oci.com
 
-and when Private Endpoint has been created for these services, that Endpoint gets additional DNS records entry in the Default private view for that specific VCN, in which specific subnet it has been created, to make it possible to resolve and get a private IP address of the endpoint within VCN.<br>
-For simplicity these domains are not depicted inside Forwarding rules in configuration views and animations, but to ensure correct DNS forwarding from Spoke to Hub and/or between regions, those should be included into configuration, as presented in below examples.
-
-Hub VCN resolver Forwarding rules in Region 1, which forwards Region 2 related DNS queries to the Listener in the Region 2:<br>
-<img src="images/hub_fwr.png" width="650" height="value">
-
-Spoke VCN resolver Forwarding rules:<br>
-<img src="images/spoke_fwr.png" width="600" height="value">
+and when Private Endpoint is being created for these services, that Endpoint gets additional DNS records entry in the Default private view for that specific VCN, in which specific subnet it has been created, to make it possible to resolve and get a private IP address of the endpoint within VCN.
