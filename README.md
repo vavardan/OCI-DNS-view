@@ -6,22 +6,22 @@
 
 **Table of Contents**
 
-- [1. Overview](#Overview)</br>
-- [2. OCI Private DNS resources](#OCI-Private-DNS-resources)</br>
-- [3. VCN DNS Resolver query processing order](#VCN-DNS-Resolver-query-processing-order)</br>
-- [4. Single-Region: Private DNS configuration view](#1-Single-Region-Private-DNS-configuration-view)</br>
-  - [4.1. Single-Region: Private DNS animation](#Single-Region-Private-DNS-animation)</br>
-- [5. Multi-Region: Private DNS configuration view](#2-Multi-Region-Private-DNS-configuration-view)</br>
-  - [5.1. Multi-Region: Private DNS animation](#Multi-Region-Private-DNS-animation)
+- [Overview](#Overview)</br>
+- [OCI Private DNS resources](#OCI-Private-DNS-resources)</br>
+- [VCN DNS Resolver query processing order](#VCN-DNS-Resolver-query-processing-order)</br>
+- [Single-Region: Private DNS configuration view](#1-Single-Region-Private-DNS-configuration-view)</br>
+  - [Single-Region: Private DNS animation](#Single-Region-Private-DNS-animation)</br>
+- [Multi-Region: Private DNS configuration view](#2-Multi-Region-Private-DNS-configuration-view)</br>
+  - [Multi-Region: Private DNS animation](#Multi-Region-Private-DNS-animation)
 
 &nbsp;
 
 ## **Overview**
 This configuration enables centralized management of private DNS zones within a Hub VCN, controlled by a central network team. All DNS configurations, including zone creation and record updates, are streamlined through a single management plane. This ensures consistency, simplifies administration and eliminates the complexity of managing DNS across multiple environments and OCI regions.
 
-This document provides configuration views for the following use cases:
-- Single-Region Deployment: Private DNS configuration view and animation for a Hub and Spoke architecture within one OCI region.
-- Multi-Region Deployment: Private DNS configuration view and animation for a setup where Hub & Spoke VCNs are interconnected via Remote Peering Connection (RPC).
+This document provides configuration views for the following use cases:</br>
+   - Single-Region Deployment: Private DNS configuration view and animation for a Hub and Spoke architecture within one OCI region.
+   - Multi-Region Deployment: Private DNS configuration view and animation for a setup where Hub & Spoke VCNs are interconnected via Remote Peering Connection (RPC).
 
 
 &nbsp;
