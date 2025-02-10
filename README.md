@@ -20,8 +20,8 @@
 This configuration enables centralized management of private DNS zones within a Hub VCN, controlled by a central network team. All DNS configurations, including zone creation and record updates, are streamlined through a single management plane. This ensures consistency, simplifies administration and eliminates the complexity of managing DNS across multiple environments and OCI regions.
 
 This document provides configuration views for the following use cases:</br>
-   - Single-Region Deployment: Private DNS configuration view and animation for a Hub and Spoke architecture within one OCI region.
-   - Multi-Region Deployment: Private DNS configuration view and animation for a setup where Hub & Spoke VCNs are interconnected via Remote Peering Connection (RPC).
+   - Single-Region: Private DNS configuration view and animation for a Hub and Spoke architecture within one OCI region.
+   - Multi-Region: Private DNS configuration view and animation for a setup where Hub & Spoke VCNs are connected via Remote Peering Connection (RPC).
 
 
 &nbsp;
