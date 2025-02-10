@@ -120,12 +120,12 @@ Configuration details:
 
 - The **web01-p.ssnpweb.vcnprodregion1.oraclevcn.com** in Spoke VCN (Region-1) performs nslookup to get an IP address of the **web02-p.ssnpweb.vcnprodregion2.oraclevcn.com** located in Region-2 inside Prod VCN.
 - Prod VCN resolver evaluates the query based on the [VCN DNS Resolver query processing order](#VCN-DNS-Resolver-query-processing-order) as follows:<br>
-    ① **Associated Private Views** - Since no private view is associated with the Prod VCN Resolver, it proceeds to the next step.<br>
-    ② **Default Private View** - This view contains only DNS records specific to the local VCN. Since the resolver does not have a record for **web02-p** in Region-2, it moves to the next step.<br>
+    ⓵ **Associated Private Views** - Since no private view is associated with the Prod VCN Resolver, it proceeds to the next step.<br>
+    ⓶ **Default Private View** - This view contains only DNS records specific to the local VCN. Since the resolver does not have a record for **web02-p** in Region-2, it moves to the next step.<br>
     ③ **Forwarding Rules** – A forwarding rule for **oraclevcn.com** is found, directing the DNS query to **hub_dns_listener-1** through **p_dns_forwarder-1** endpoint, and subsequently to the Hub VCN Resolver in Region-1. 
 - A Hub VCN Resolver in Region-1 evaluates the query based on the [VCN DNS Resolver query processing order](#VCN-DNS-Resolver-query-processing-order) as follows:<br>
-    ① **Associated Private Views** - These views do not contain records for the **vcnprodregion2.oraclevcn.com** subdomain, so it moves to the next step.<br>
-    ② **Default Private View** - This view contains only region-specific VCN records, so it proceeds to the next step.<br>
+    ⓵ **Associated Private Views** - These views do not contain records for the **vcnprodregion2.oraclevcn.com** subdomain, so it moves to the next step.<br>
+    ⓶ **Default Private View** - This view contains only region-specific VCN records, so it proceeds to the next step.<br>
     ⓷ **Forwarding Rules** - A rule for **vcnprodregion2.oraclevcn.com** is found, forwarding the DNS query to **hub_dns_listener-2** via **hub_dns_forwarder-1**. Which then sends it to the Hub VCN Resolver in Region-2. 
 - Hub VCN Resolver in Region-2 has the required DNS records from all the **Associated Private views**, and returns the IP address of **web02-p** as the DNS response.
 
