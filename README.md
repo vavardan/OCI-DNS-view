@@ -46,18 +46,21 @@ Configuration details:
 
 &nbsp;
 
-##### DNS configuration with On-Premise connected.<br>
+#### DNS configuration with On-Premise connected.<br>
 Additionally to the above configuration, here are the forwarding rules for the On-Premise DNS zones in each Spoke VCN and also in Hub VCN, pointing to Network Load Balancer (NLB), as the target of the forwarding rule. On-Premise DNS servers are configured as a the backends for a **DNS NLB**.  
 
 <img src="images/onprem.png" width="900" height="value">
 
----
 
-### Private DNS animation for One Region
+&nbsp;
+
+&nbsp;
+
+## Private DNS animation for One Region
 
 These animations illustrate the DNS query and response within Hub & Spoke, and covers the following scenarios:
 
-1. **DNS resolution within the same Spoke VCN**
+#### 1. DNS resolution within the same Spoke VCN
 - **web01-p.ssnpweb.vcnprod.oraclevcn.com** in prod Spoke VCN performs nslookup to retrieve an IP address of the **db01-p.ssnpdb.vcnprod.oraclevcn.com** database instance located in th same Spoke VCN, but in the different subnet.
 - Prod VCN resolver evaluates the items in the [VCN resolver order](#VCN-resolver-order) list, with the following order:<br>
    •1• Associated Private Views: as there is no Private views association with Prod VCN resolver, it checks the next one.<br>
