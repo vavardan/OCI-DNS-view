@@ -30,7 +30,7 @@ This document provides configuration views for the following use cases:</br>
 
 | Resource | Description |
 | - | - |
-| VCN Resolver | Each VCN has its own DNS resolver. A VCN dedicated private DNS resolver contains the configuration that serves responses to DNS queries within the VCN. The resolver listens on 169.254.169.254 by default. |
+| VCN Resolver | Each VCN has a dedicated DNS resolver that processes and responds to DNS queries within the VCN. By default, it listens on 169.254.169.254 and operates based on its configured settings. |
 | Private Zones | Private zones contain DNS data only accessible from within a VCN, such as private IP addresses. |
 | Private Views | A private DNS view is a collection of private zones, and these are:<br>• **Default Private View** - a dedicated/default view for VCN Resolver.<br>• **Associated Private Views** - the private views from other VCNs, added into VCN Resolver. |
 | Resolver Endpoints | There are two types of endpoints:<br>• **Listening endpoint** - allows the DNS Resolver to answer DNS queries coming from outside the VCN, such as on-prem systems and other resolvers.<br>• **Forwarding endpoint** - allows the DNS resolver to query a remote DNS as defined in the Forwarding rules. |
