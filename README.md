@@ -4,6 +4,14 @@
 
 &nbsp; 
 
+**Table of Contents**
+
+[1. Overview](#Overview)</br>
+[2. OCI Private DNS resources](#OCI-Private-DNS-resources)</br>
+[3. Specifications and Considerations](#3-specifications-and-considerations)</br>
+[4. Routing](#4-routing)</br>
+[5. Deploy](#5-deploy)</br>
+
 ## **Overview**
 This configuration enables centralized management of private DNS zones within a Hub VCN, controlled by a central network team. All DNS configurations, including zone creation and record updates, are streamlined through a single management plane. This ensures consistency, simplifies administration and eliminates the complexity of managing DNS across multiple environments and OCI regions.
 
