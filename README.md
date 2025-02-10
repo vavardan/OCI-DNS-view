@@ -78,8 +78,8 @@ These animations illustrate the DNS query and response within Hub & Spoke, and c
 #### Scenario 1: DNS resolution within the same Spoke VCN
 - The **web01-p.ssnpweb.vcnprod.oraclevcn.com** instance in prod Spoke VCN performs a nslookup to retrieve an IP address of the **db01-p.ssnpdb.vcnprod.oraclevcn.com** database instance, which is located in the same Spoke VCN but in a different subnet.
 - Prod VCN resolver evaluates the query based on the [VCN DNS Resolver query processing order](#VCN-DNS-Resolver-query-processing-order) as follows:<br>
-   •1• Associated Private Views: Since no Private view is associated with the Prod VCN resolver, it proceeds to the next step.<br>
-   •2• Default Private View: The default private view contains a DNS record for the database, so the resolver retrieves the record.
+   •1• **Associated Private Views** - Since no Private view is associated with the Prod VCN resolver, it proceeds to the next step.<br>
+   •2• **Default Private View** - The default private view contains a DNS record for the database, so the resolver retrieves the record.
 - The Prod VCN resolver returns the DNS response to **web01-p**.
 
 <img src="images/withinspoke.gif" width="800" />
@@ -87,14 +87,12 @@ These animations illustrate the DNS query and response within Hub & Spoke, and c
 &nbsp;
 
 #### Scenario 2:. Spoke to Spoke DNS resolution
-- **web01-p.ssnpweb.vcnprod.oraclevcn.com** in prod Spoke VCN performs nslookup to get an IP address of the **web02-pp.ssnppweb.vcnpreprod.oraclevcn.com** located in the preprod Spoke VCN.
-- Prod VCN resolver evaluates the items in the [VCN resolver order](#VCN-resolver-order) list, with the following order:<br>
-   •1• Associated Private Views: as there is no Private views association with Prod VCN resolver, it checks the next one.<br>
-   •2• Default Private View: here it contains only self VCN specific DNS records, and prod VCN resolver hasn't DNS record of web02-pp, hence to the next one.<br>
-   •3• Forwarding Rules: it picks this one, as it contains rule for oraclevcn.com forwarding to the **hub_dns_listener**. 
-- The DNS query is then forwarded by the **p_dns_forwarder** in the prod Spoke VCN to the **hub_dns_listener** endpoint, and then to the Hub VCN Resolver. 
-- Hub VCN Resolver has all the DNS data/records from all the **Associated private views**, and it responds back (DNS response) to the Prod VM **web01-p**.
-- After an answer is provided, no further items are evaluated, even if the answer is negative.
+- The **web01-p.ssnpweb.vcnprod.oraclevcn.com** in prod Spoke VCN performs a nslookup to retrieve the IP address of **web02-pp.ssnppweb.vcnpreprod.oraclevcn.com**, located in the preprod Spoke VCN.
+- Prod VCN resolver evaluates the query based on the [VCN DNS Resolver query processing order](#VCN-DNS-Resolver-query-processing-order) as follows:<br
+   •1• **Associated Private Views** - Since no Private view is associated with the Prod VCN resolver, it moves to the next option.<br>
+   •2• **Default Private View** – This view contains only DNS records specific to the Prod VCN. Since the resolver does not have a record for web02-pp, it proceeds to the next step.<br>
+   •3• **Forwarding Rules** – The resolver identifies a rule for **oraclevcn.com**, directing the query to the **hub_dns_listener** through the **p_dns_forwarder** in the Prod Spoke VCN.
+- The Hub VCN Resolver, which has all DNS data/records from the **Associated Private views**, processes the query and returns the DNS response to **web01-p** in the Prod Spoke VCN.
 
 <img src="images/spoke2spoke.gif" width="800" />
 
