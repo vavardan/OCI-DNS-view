@@ -96,8 +96,6 @@ These animations illustrate the DNS query and response within Hub & Spoke, and c
 
 <img src="images/spoke2spoke.gif" width="800" />
 
-Summary: With this configuration inside Hub & Spoke architecture model, all VCN internal and Internet specific DNS queries will be handled by VCN specific resolver, and the domains which are defined and included in the Forwarding rules will be handled by the Hub VCN resolver, those can be external domains as well as private zones created in OCI.
-
 &nbsp;
 
 ## **2. Multi-Region: Private DNS configuration view**
@@ -142,3 +140,6 @@ Configuration details:
 >
 > When a Private Endpoint is created for one of these services, an additional DNS record is automatically added to the Default Private View of the specific VCN where the endpoint's subnet resides. This allows the private IP address of the endpoint to be resolved within the VCN.<br>
 > For simplicity, these domains are not explicitly depicted in Forwarding Rules within the animations but are included in the configuration views.
+
+##### Summary
+This Private DNS configuration in a Hub and Spoke architecture ensures that all VCN-internal and Internet-specific DNS queries are handled by their respective VCN Resolvers. Meanwhile, Oracle-specific domains, On-Premises zones, and custom-created domains are handled and managed by the Hub VCN Resolver. This approach streamlines DNS management and maintains a consistent, scalable architecture across the OCI environment, including multi-region deployments.
