@@ -10,7 +10,7 @@
 - [OCI Private DNS resources](#OCI-Private-DNS-resources)</br>
 - [VCN DNS Resolver processing order](#VCN-DNS-Resolver-processing-order)</br>
 - [Single-Region: Private DNS configuration view](#1-Single-Region-Private-DNS-configuration-view)</br>
-  - [Single-Region: Private DNS animation](#Single-Region-Private-DNS-animation)</br>
+  - [Single-Region: Private DNS animations](#Single-Region-Private-DNS-animations)</br>
 - [Multi-Region: Private DNS configuration view](#2-Multi-Region-Private-DNS-configuration-view)</br>
   - [Multi-Region: Private DNS animation](#Multi-Region-Private-DNS-animation)
 
@@ -71,7 +71,7 @@ In addition to the above configuration, the following setup includes forwarding 
 
 &nbsp;
 
-## Single-Region: Private DNS animation
+## Single-Region: Private DNS animations
 
 These animations illustrate the DNS query and response within Hub & Spoke, and covers the following scenarios:
 
