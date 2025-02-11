@@ -101,7 +101,7 @@ These animations illustrate the DNS query and response within Hub & Spoke, and c
 ## **2. Multi-Region: Private DNS configuration view**
 Configuration details:
   - Each Hub VCN in a given region consists of the following resources and components:
-    - Forwarding (**hub_dns_forwarder-1/2**) and Listening (**hub_dns_listener-1/2**) endpoints.
+    - Forwarding (**hub_dns_forwarder-1 and 2**) and Listening (**hub_dns_listener-1 and 2**) endpoints.
     - The Hub VCN Resolver is associated with Private views for both - the Hub and Spoke VCNs, allowing it to store and resolve all DNS records across the three VCNs within the Hub and Spoke architecture.
     - Conditional Forwarding Rules in the Hub VCN resolvers ensure that region-specific DNS zones are forwarded to the appropriate region.
   - In each region, Spoke VCN Resolvers include:
