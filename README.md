@@ -134,7 +134,7 @@ Configuration details:
 &nbsp;
 
 > [!NOTE]
->OCI services such as Autonomous Databases, Oracle Analytics, Streaming, Object Storage, and others support Private Endpoints. These services have automatically generated, publicly resolvable DNS records within Oracle-owned public domains, such as:
+>OCI services such as Autonomous Databases, Oracle Analytics, Streaming, Object Storage, and others support Private Endpoints. These services have automatically generated DNS records within Oracle-owned public domains, such as:
 >- oraclecloud.com
 >- oci.customer-oci.com
 >
