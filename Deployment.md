@@ -11,12 +11,18 @@
 &nbsp;
 
 ## **Overview**
-This guide provides the steps for the configuration and deployment of Private DNS on the existing Hub & Spoke aritcheture with the choosen Hub model.
+This guide provides the steps for the configuration and deployment of Private DNS on the existing Hub & Spoke aritcheture with the choosen Hub model. It will deploy the highlithed components in the below architecture diagram, on top of existing/already deployed Hub & Spoke architecture. 
+
 
 
 The DNS configuration consist of the following objects - to be added and adjusted:
 
-- 1st object: NSG attached to Listener in Hub VCN
+---
+
+**Configuration objects for Hub VCN:**
+
+- 1st object: NSG (Network Security Group) configuration, which then is attached to the HUB DNS Listener. This allows required Ingress and Egress traffic for DNS communication with Spoke DNS Forwarders.
+
 
                             "NSG-FRA-LZP-HUB-DNS-KEY": {
                                 "display_name": "nsg-fra-lzp-hub-dns",
@@ -69,6 +75,70 @@ The DNS configuration consist of the following objects - to be added and adjuste
                                 }
                             }
                         }
+
+---
+
+**Configuration objects for Spoke VCNs (Prod and PreProd):**
+
+- 1st object: NSG configuration, which then is attached to the Prod DNS Forwarder. This allows required Ingress and Egress traffic for DNS communication with Hub DNS Listener.
+
+                            "NSG-LZP-P-PROJECTS-DNS-KEY": {
+                                "display_name": "nsg-lzp-p-projects-dns",
+                                "egress_rules": {
+                                    "egress_dns_udp": {
+                                        "description": "Egress to Hub DNS endpoint: UDP, Stateless",
+                                        "dst_port_max": 53,
+                                        "dst_port_min": 53,
+                                        "dst": "10.0.5.11/32",
+                                        "dst_type": "CIDR_BLOCK",
+                                        "protocol": "UDP",
+                                        "stateless": true
+                                        ...
+                            }
+
+
+- 2nd object: DNS resolver configuration for Forwarder and Forwarding Rules. 
+
+                        "dns_resolver": {
+                            "display_name": "vcn-fra-lzp-p-projects",
+                            "attached_views": {},
+                            "rules" : [
+                                {
+                                "action"                : "FORWARD",
+                                "destination_address"   : ["10.0.5.11"],
+                                "source_endpoint_name"  : "RESOLVER_P_ENDPOINT_FORWARDER_1",
+                                "qname_cover_conditions": ["oraclevcn.com"]
+                                },
+                                {
+                                "action"                : "FORWARD",
+                                "destination_address"   : ["10.0.5.11"],
+                                "source_endpoint_name"  : "RESOLVER_P_ENDPOINT_FORWARDER_1",
+                                "qname_cover_conditions": ["oraclecloud.com"]
+                                },
+                                {
+                                "action"                : "FORWARD",
+                                "destination_address"   : ["10.0.5.11"],
+                                "source_endpoint_name"  : "RESOLVER_P_ENDPOINT_FORWARDER_1",
+                                "qname_cover_conditions": ["oci.customer-oci.com"]
+                                }
+                              ],
+                            "resolver_endpoints": {
+                                "RESOLVER_P_ENDPOINT_FORWARDER_1": {
+                                    "enpoint_type"      : "VNIC",
+                                    "is_forwarding"     : "true",
+                                    "is_listening"      : "false",
+                                    "forwarding_address": "10.0.67.10",
+                                    "name"              : "dns_forwarder_fra_p",
+                                    "subnet"            : "SSN-FRA-LZP-P-INFRA",
+                                    "nsg"               : ["NSG-LZP-P-PROJECTS-DNS-KEY"]
+                                }
+                            }
+                        }
+
+
+The same configuration applies for Pred and Pre-Prod, with only difference that a respective IP address should be defined for each Spoke DNS Forwarder. 
+
+---
 
 &nbsp; 
 
