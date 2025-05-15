@@ -13,6 +13,7 @@
 ## **Overview**
 This guide provides the steps for the configuration and deployment of Private DNS on the existing Hub & Spoke aritcheture with the choosen Hub model. It will deploy the highlithed components in the below architecture diagram, on top of existing/already deployed Hub & Spoke architecture. 
 
+<img src="images/dns-arch.png" width="900" height="value">
 
 
 The DNS configuration consist of the following objects - to be added and adjusted:
@@ -136,7 +137,7 @@ The DNS configuration consist of the following objects - to be added and adjuste
                         }
 
 
-The same configuration applies for Pred and Pre-Prod, with only difference that a respective IP address should be defined for each Spoke DNS Forwarder. 
+The same configuration applies for Prod and Pre-Prod, with only difference that a respective IP address should be defined for each Spoke DNS Forwarder. 
 
 ---
 
