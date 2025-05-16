@@ -8,7 +8,7 @@ The components highlighted in the architecture diagram below will be implemented
 <img src="images/dns-arch.png" width="900" height="value">
 
 
-## **Steps**
+## **Configuration and deployment**
 
 **Step 1**. Deploy [OCI Open Landing Zone](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/tree/master/blueprints/one-oe). 
 
