@@ -36,7 +36,7 @@ The components highlighted in the architecture diagram below will be implemented
 Note: full configuration of the NSGs are available in the **Private DNS Network json template**
 
 - **2nd object**: Configuration of Private views, Forwarder and Listener in the **Hub VCN**.<br>
-  The OCIDs for the Hub, Prod, and Pre-Prod DNS views should be obtained from the OCI Console or CLI and specified as values for `"existing_view_id"`.<br>
+  The OCIDs for the Hub, Prod, and PreProd private views should be obtained from the OCI Console or CLI and specified as values for `"existing_view_id"`.<br>
   An OCID for the DNS view in OCI console can be found in **Networking -> DNS management -> Private views -> Private view information**.
 
                         "dns_resolver": {
@@ -130,7 +130,7 @@ Note: full configuration of the NSGs are available in the **Private DNS Network 
                             }
                         }
 
-The same configuration applies to both Prod and Pre-Prod environments, with the only difference being that each Spoke DNS Forwarder requires a unique IP address.<br>
+The same configuration applies to both Prod and PreProd environments, with the only difference being that each Spoke DNS Forwarder requires a unique IP address.<br>
 Note: Ensure all required values, such as IP addresses, are adjusted to match your specific deployment.
 
 &nbsp;
