@@ -1,14 +1,7 @@
 
 # **[OCI Private DNS deployment guide](#)**
-## **An OCI Open LZ [Addon](#) to Tailor and Optimize Your DNS configuration**
 
 &nbsp; 
-
-**Table of Contents**
-
-- [Overview](#Overview)</br>
-
-&nbsp;
 
 ## **Overview**
 This guide provides step-by-step instructions for configuring and deploying Private DNS on top of existing Hub & Spoke architecture. While it uses the [Hub A model](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/blob/master/addons/oci-hub-models/hub_a/readme.md) as a reference, the process is applicable to all [Hub models](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/blob/master/addons/oci-hub-models/readme.md). 
@@ -137,7 +130,8 @@ The components highlighted in the architecture diagram below will be implemented
                             }
                         }
 
-The same configuration applies to both Prod and Pre-Prod environments, with the only difference being that each Spoke DNS Forwarder requires a unique IP address. Ensure all required values, such as IP addresses, are adjusted to match your specific deployment.
+The same configuration applies to both Prod and Pre-Prod environments, with the only difference being that each Spoke DNS Forwarder requires a unique IP address.<br>
+Ensure all required values, such as IP addresses, are adjusted to match your specific deployment.
 
 **Step 3**. Run the stack with the updated Network Configuration, which now includes the Private DNS objects.
 
