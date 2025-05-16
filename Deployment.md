@@ -16,7 +16,7 @@ The components highlighted in the architecture diagram below will be implemented
 
 **Private DNS Network json template** consist of the following four additional objects, which are added into Network Configuration:
 
-- **1st object**: NSG (Network Security Group) configuration in **Hub VCN**, which is attached to the Hub DNS Listener. This allows required Ingress and Egress DNS traffic flow with Spoke DNS Forwarders.
+- **1st object**: Network Security Group (NSG) configuration in the **Hub VCN**, attached to the Hub DNS Listener. This configuration enables the necessary Ingress and Egress DNS traffic flow with Spoke DNS Forwarders.
 
 
                             "NSG-FRA-LZP-HUB-DNS-KEY": {
@@ -73,7 +73,7 @@ The components highlighted in the architecture diagram below will be implemented
                         }
 
 
-- **3rd object**: NSG configuration in **Spoke VCN**, which is attached to the Prod DNS Forwarder. This allows required Ingress and Egress DNS traffic flow with Hub DNS Listener.
+- **3rd object**: NSG configuration in **Spoke VCN**, attached to the Prod DNS Forwarder. This enables the required Ingress and Egress DNS traffic flow to the Hub DNS Listener.
 
                             "NSG-LZP-P-PROJECTS-DNS-KEY": {
                                 "display_name": "nsg-lzp-p-projects-dns",
@@ -129,7 +129,7 @@ The components highlighted in the architecture diagram below will be implemented
                         }
 
 The same configuration applies to both Prod and Pre-Prod environments, with the only difference being that each Spoke DNS Forwarder requires a unique IP address.<br>
-Ensure all required values, such as IP addresses, are adjusted to match your specific deployment.
+Note: Ensure all required values, such as IP addresses, are adjusted to match your specific deployment.
 
 &nbsp;
 
