@@ -11,17 +11,19 @@
 &nbsp;
 
 ## **Overview**
-This guide provides the steps for the configuration and deployment of Private DNS on top of existing/already deployed Hub & Spoke architecture with the chosen [Hub model](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/blob/master/addons/oci-hub-models/readme.md), it will deploy the highlighted components in the below architecture diagram. 
-In this guide as a base model is used [Hub A model](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/blob/master/addons/oci-hub-models/hub_a/readme.md), but it's a same configuration and deployment of Private DNS for all Hub models.
-
 This guide provides step-by-step instructions for configuring and deploying Private DNS on top of existing Hub & Spoke architecture. While it uses the [Hub A model](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/blob/master/addons/oci-hub-models/hub_a/readme.md) as a reference, the process is applicable to all [Hub models](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/blob/master/addons/oci-hub-models/readme.md). 
 The components highlighted in the architecture diagram below will be implemented as part of this process.
 
 <img src="images/dns-arch.png" width="900" height="value">
 
----
 
-The DNS configuration consist of the following objects - to be added and adjusted:
+## **Steps**
+
+**Step 1**. Deploy [OCI Open Landing Zone One-OE](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/tree/master/blueprints/one-oe)
+
+**Step 2**. Update Network Configuration json and add below objects into Network Configuration json. Alternatively you can download and use post **Private DNS Network json template** for Hub A model (light option - without OCI Network Firewalls).
+
+**Private DNS Network json template** consist of the following additional objects, included into Network Configuration:
 
 **Configuration objects for Hub VCN:**
 
@@ -142,7 +144,7 @@ The DNS configuration consist of the following objects - to be added and adjuste
 
 The same configuration applies for Prod and Pre-Prod, with only difference that a respective IP address should be defined for each Spoke DNS Forwarder. 
 
----
+**Step 3**. Execute the stack with the new Network Configuration, which now includes Private DNS configuration.
 
 &nbsp; 
 
