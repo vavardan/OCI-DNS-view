@@ -10,7 +10,7 @@ The components highlighted in the architecture diagram below will be implemented
 
 ## **Steps**
 
-**Step 1**. Deploy [OCI Open Landing Zone One-OE](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/tree/master/blueprints/one-oe). 
+**Step 1**. Deploy [OCI Open Landing Zone](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/tree/master/blueprints/one-oe). 
 
 **Step 2**. Update the Network Configuration json to include the below presented objects, or you can download and use the **Private DNS Network json template** for the Hub A model (light version - without OCI Network Firewalls).
 
