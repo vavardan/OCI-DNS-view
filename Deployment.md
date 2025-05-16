@@ -21,13 +21,11 @@ The components highlighted in the architecture diagram below will be implemented
 
 **Step 1**. Deploy [OCI Open Landing Zone One-OE](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/tree/master/blueprints/one-oe)
 
-**Step 2**. Update Network Configuration json and add below objects into Network Configuration json. Alternatively you can download and use post **Private DNS Network json template** for Hub A model (light option - without OCI Network Firewalls).
+**Step 2**. Update the Network Configuration JSON to include the below presented objects (Note: full configuration of the NSGs are available in the template). Alternatively, you can download and use the **Private DNS Network json template**  for the Hub A model (light version - without OCI Network Firewalls).
 
 **Private DNS Network json template** consist of the following additional objects, which are included into Network Configuration:
 
-    **Configuration objects for Hub VCN:**
-
-- **1st object**: NSG (Network Security Group) configuration, which then is attached to the HUB DNS Listener. This allows required Ingress and Egress traffic for DNS communication with Spoke DNS Forwarders.
+- **1st object for Hub**: NSG (Network Security Group) configuration, which then is attached to the HUB DNS Listener. This allows required Ingress and Egress traffic for DNS communication with Spoke DNS Forwarders.
 
 
                             "NSG-FRA-LZP-HUB-DNS-KEY": {
@@ -45,7 +43,7 @@ The components highlighted in the architecture diagram below will be implemented
                             }
 
 
-- **2nd object**: Associated Private views, Forwarder and Listener configuration in Hub VCN. OCIDs of the dns views should be gathered from OCI console or CLI, once VCNs are deployed.
+- **2nd object for Hub**: Associated Private views, Forwarder and Listener configuration in Hub VCN. OCIDs of the dns views should be gathered from OCI console or CLI, once VCNs are deployed in the Step 1.
 
                         "dns_resolver": {
                             "display_name": "vcn-fra-lzp-hub",
@@ -82,11 +80,8 @@ The components highlighted in the architecture diagram below will be implemented
                             }
                         }
 
----
 
-**Configuration objects for Spoke VCNs (Prod and PreProd):**
-
-- **1st object**: NSG configuration, which then is attached to the Prod DNS Forwarder. This allows required Ingress and Egress traffic for DNS communication with Hub DNS Listener.
+- **1st object for Spoke**: NSG configuration, which then is attached to the Prod DNS Forwarder. This allows required Ingress and Egress traffic for DNS communication with Hub DNS Listener.
 
                             "NSG-LZP-P-PROJECTS-DNS-KEY": {
                                 "display_name": "nsg-lzp-p-projects-dns",
@@ -103,7 +98,7 @@ The components highlighted in the architecture diagram below will be implemented
                             }
 
 
-- **2nd object**: DNS resolver configuration for Forwarder and Forwarding Rules. 
+- **2nd object for Spoke**: DNS resolver configuration for Forwarder and Forwarding Rules. 
 
                         "dns_resolver": {
                             "display_name": "vcn-fra-lzp-p-projects",
@@ -141,10 +136,10 @@ The components highlighted in the architecture diagram below will be implemented
                             }
                         }
 
+The same configuration applies to both Prod and Pre-Prod environments, with the only difference being that each Spoke DNS Forwarder requires a unique IP address. Ensure all required values, such as IP addresses, are adjusted to match your specific deployment.
 
-The same configuration applies for Prod and Pre-Prod, with only difference that a respective IP address should be defined for each Spoke DNS Forwarder. 
+**Step 3**. Run the stack with the updated Network Configuration, which now includes the Private DNS objects.
 
-**Step 3**. Execute the stack with the new Network Configuration, which now includes Private DNS configuration.
 
 &nbsp; 
 
