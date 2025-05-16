@@ -37,7 +37,6 @@ Note: full configuration of the NSGs are available in the **Private DNS Network 
 
 - **2nd object**: Configuration of Private views, Forwarder and Listener in the **Hub VCN**.<br>
   The OCIDs for the Hub, Prod, and PreProd private views should be obtained from the OCI Console or CLI and specified as values for `"existing_view_id"`.<br>
-  An OCID for the DNS view in OCI console can be found in **Networking -> DNS management -> Private views -> Private view information**.
 
                         "dns_resolver": {
                             "display_name": "vcn-fra-lzp-hub",
@@ -74,6 +73,7 @@ Note: full configuration of the NSGs are available in the **Private DNS Network 
                             }
                         }
 
+  An OCID for the private view in OCI console can be found in **Networking -> DNS management -> Private views -> Private view information**.
 
 - **3rd object**: NSG configuration in **Spoke VCN**, attached to the Prod DNS Forwarder. This enables the required Ingress and Egress DNS traffic flow to the Hub DNS Listener.
 
