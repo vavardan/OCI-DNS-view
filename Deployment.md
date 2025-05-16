@@ -23,9 +23,9 @@ The components highlighted in the architecture diagram below will be implemented
 
 **Step 2**. Update Network Configuration json and add below objects into Network Configuration json. Alternatively you can download and use post **Private DNS Network json template** for Hub A model (light option - without OCI Network Firewalls).
 
-**Private DNS Network json template** consist of the following additional objects, included into Network Configuration:
+**Private DNS Network json template** consist of the following additional objects, which are included into Network Configuration:
 
-**Configuration objects for Hub VCN:**
+    **Configuration objects for Hub VCN:**
 
 - **1st object**: NSG (Network Security Group) configuration, which then is attached to the HUB DNS Listener. This allows required Ingress and Egress traffic for DNS communication with Spoke DNS Forwarders.
 
