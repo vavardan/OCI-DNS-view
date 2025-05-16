@@ -11,7 +11,7 @@
 &nbsp;
 
 ## **Overview**
-This guide provides the steps for the configuration and deployment of Private DNS on the existing Hub & Spoke aritcheture with the choosen Hub model. It will deploy the highlithed components in the below architecture diagram, on top of existing/already deployed Hub & Spoke architecture. 
+This guide provides the steps for the configuration and deployment of Private DNS on top of existing/already deployed Hub & Spoke architecture with the chosen [Hub model](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/blob/master/addons/oci-hub-models/readme.md), it will deploy the highlighted components in the below architecture diagram. 
 
 <img src="images/dns-arch.png" width="900" height="value">
 
