@@ -35,7 +35,7 @@ The components highlighted in the architecture diagram below will be implemented
 
 Note: full configuration of the NSGs are available in the **Private DNS Network json template**
 
-- **2nd object**: Configuration of Private views, Forwarder and Listener in the **Hub VCN**. 
+- **2nd object**: Configuration of Private views, Forwarder and Listener in the **Hub VCN**.<br>
   OCIDs of the DNS views should be obtained from the OCI console or CLI, after the VCNs have been deployed in Step 1. An OCID for the DNS view in OCI console can be found in **Networking -> DNS management -> Private views -> Private view information**.
 
                         "dns_resolver": {
