@@ -36,20 +36,20 @@ The components highlighted in the architecture diagram below will be implemented
 Note: full configuration of the NSGs are available in the **Private DNS Network json template**
 
 - **2nd object**: Configuration of Private views, Forwarder and Listener in the **Hub VCN**.<br>
-  DNS view's OCIDs for the Hub, Prod and Pre-Prod should be obtained from the OCI console or CLI, and defined like this: `"existing_view_id": "ocid1.dnsview.oc1..."`.<br>
+  The OCIDs for the Hub, Prod, and Pre-Prod DNS views should be obtained from the OCI Console or CLI and defined as follows: `"existing_view_id": "ocid1.dnsview.oc1.eu-frankfurt-1.aaaaaaaaa4xr3d..."`.<br>
   An OCID for the DNS view in OCI console can be found in **Networking -> DNS management -> Private views -> Private view information**.
 
                         "dns_resolver": {
                             "display_name": "vcn-fra-lzp-hub",
                             "attached_views": {
                             "DNS-HUB": {
-                                "existing_view_id": "ocid1.dnsview.oc1..." 
+                                "existing_view_id": "ocid1.dnsview.oc1.eu-frankfurt-1.aaaaaaaaa4xr3d..." 
                                 },
                             "DNS-P-PROJECTS": {
-                                "existing_view_id": "ocid1.dnsview.oc1..." 
+                                "existing_view_id": "ocid1.dnsview.oc1.eu-frankfurt-1.aaaaaaaap4jtzm..." 
                                 },
                             "DNS-PP-PROJECTS": {
-                                "existing_view_id": "ocid1.dnsview.oc1..." 
+                                "existing_view_id": "ocid1.dnsview.oc1.eu-frankfurt-1.aaaaaaaakaxf5m..." 
                                 }
                             },
                             "resolver_endpoints": {
