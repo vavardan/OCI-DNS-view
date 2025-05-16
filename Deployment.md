@@ -82,7 +82,7 @@ The components highlighted in the architecture diagram below will be implemented
                         }
 
 
-- **1st object for Spoke**: NSG configuration, which then is attached to the Prod DNS Forwarder. This allows required Ingress and Egress traffic for DNS communication with Hub DNS Listener.
+- **1st object for Spoke**: NSG configuration, which is attached to the Prod DNS Forwarder. This allows required Ingress and Egress DNS traffic flow with Hub DNS Listener.
 
                             "NSG-LZP-P-PROJECTS-DNS-KEY": {
                                 "display_name": "nsg-lzp-p-projects-dns",
