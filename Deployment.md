@@ -42,13 +42,13 @@ Note: full configuration of the NSGs are available in the **Private DNS Network 
                             "display_name": "vcn-fra-lzp-hub",
                             "attached_views": {
                             "DNS-HUB": {
-                                "existing_view_id": "ocid1.dnsview.oc1.eu-frankfurt-1.aaaaaaaaa4xr3d..." 
+                                "existing_view_id": "HUB PRIVATE VIEW OCID, e.g. ocid1.dnsview.oc1.eu-frankfurt-1.aaaaaaaaa4xr3d..." 
                                 },
                             "DNS-P-PROJECTS": {
-                                "existing_view_id": "ocid1.dnsview.oc1.eu-frankfurt-1.aaaaaaaap4jtzm..." 
+                                "existing_view_id": "PROD PRIVATE VIEW OCID, e.g. ocid1.dnsview.oc1.eu-frankfurt-1.aaaaaaaap4jtzm..." 
                                 },
                             "DNS-PP-PROJECTS": {
-                                "existing_view_id": "ocid1.dnsview.oc1.eu-frankfurt-1.aaaaaaaakaxf5m..." 
+                                "existing_view_id": "PREPROD PRIVATE VIEW OCID, e.g. ocid1.dnsview.oc1.eu-frankfurt-1.aaaaaaaakaxf5m..." 
                                 }
                             },
                             "resolver_endpoints": {
