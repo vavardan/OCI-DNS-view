@@ -25,7 +25,7 @@ The components highlighted in the architecture diagram below will be implemented
 
 **Private DNS Network json template** consist of the following four additional objects, which are added into Network Configuration:
 
-- **1st object**: NSG (Network Security Group) configuration in Hub VCN, which is attached to the Hub DNS Listener. This allows required Ingress and Egress DNS traffic flow with Spoke DNS Forwarders.
+- **1st object**: NSG (Network Security Group) configuration in **Hub VCN**, which is attached to the Hub DNS Listener. This allows required Ingress and Egress DNS traffic flow with Spoke DNS Forwarders.
 
 
                             "NSG-FRA-LZP-HUB-DNS-KEY": {
@@ -43,7 +43,7 @@ The components highlighted in the architecture diagram below will be implemented
                             }
 
 
-- **2nd object**: Configuration of Associated Private views, Forwarder and Listener in the Hub VCN. 
+- **2nd object**: Configuration of Private views, Forwarder and Listener in the **Hub VCN**. 
   OCIDs of the DNS views should be obtained from the OCI console or CLI, after the VCNs have been deployed in Step 1. An OCID for the DNS view in OCI console can be found in **Networking -> DNS management -> Private views -> Private view information**.
 
                         "dns_resolver": {
@@ -82,7 +82,7 @@ The components highlighted in the architecture diagram below will be implemented
                         }
 
 
-- **3rd object**: NSG configuration in Spoke VCN, which is attached to the Prod DNS Forwarder. This allows required Ingress and Egress DNS traffic flow with Hub DNS Listener.
+- **3rd object**: NSG configuration in **Spoke VCN**, which is attached to the Prod DNS Forwarder. This allows required Ingress and Egress DNS traffic flow with Hub DNS Listener.
 
                             "NSG-LZP-P-PROJECTS-DNS-KEY": {
                                 "display_name": "nsg-lzp-p-projects-dns",
@@ -99,7 +99,7 @@ The components highlighted in the architecture diagram below will be implemented
                             }
 
 
-- **4th object**: DNS resolver configuration for Forwarder and Forwarding Rules in Spoke VCN. 
+- **4th object**: DNS resolver configuration for Forwarder and Forwarding Rules in **Spoke VCN**. 
 
                         "dns_resolver": {
                             "display_name": "vcn-fra-lzp-p-projects",
