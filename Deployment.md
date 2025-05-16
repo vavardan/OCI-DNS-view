@@ -131,6 +131,8 @@ The components highlighted in the architecture diagram below will be implemented
 The same configuration applies to both Prod and Pre-Prod environments, with the only difference being that each Spoke DNS Forwarder requires a unique IP address.<br>
 Ensure all required values, such as IP addresses, are adjusted to match your specific deployment.
 
+&nbsp;
+
 **Step 3**. Run the stack with the updated Network Configuration, which now includes the Private DNS objects.
 
 
