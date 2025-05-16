@@ -12,7 +12,7 @@ The components highlighted in the architecture diagram below will be implemented
 
 **Step 1**. Deploy [OCI Open Landing Zone One-OE](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/tree/master/blueprints/one-oe).
 
-**Step 2**. Update the Network Configuration json to include the below presented objects (note: full configuration of the NSGs are available in the template). Alternatively, you can download and use the **Private DNS Network json template**  for the Hub A model (light version - without OCI Network Firewalls).
+**Step 2**. Update the Network Configuration json to include the below presented objects, or you can download and use the **Private DNS Network json template** for the Hub A model (light version - without OCI Network Firewalls).
 
 **Private DNS Network json template** consist of the following four additional objects, which are added into Network Configuration:
 
@@ -33,6 +33,7 @@ The components highlighted in the architecture diagram below will be implemented
                                         ...
                             }
 
+Note: full configuration of the NSGs are available in the **Private DNS Network json template**
 
 - **2nd object**: Configuration of Private views, Forwarder and Listener in the **Hub VCN**. 
   OCIDs of the DNS views should be obtained from the OCI console or CLI, after the VCNs have been deployed in Step 1. An OCID for the DNS view in OCI console can be found in **Networking -> DNS management -> Private views -> Private view information**.
