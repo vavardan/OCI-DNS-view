@@ -175,7 +175,7 @@ Note: Ensure that all required values, including IP addresses, OCIDs, naming con
 
 &nbsp;
 
-**Step 3**. Run the stack with the updated Network Configuration, which now includes the Private DNS objects.
+**Step 3**. Run the stack with the updated Network Configuration json, which now includes the Private DNS objects.
 
 
 &nbsp; 
