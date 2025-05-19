@@ -14,9 +14,9 @@ The components highlighted in the architecture diagram below will be implemented
 
 **Step 2**. Update the Network Configuration json to include the objects shown below. You can also refer to and use the **Private DNS Network json template** for the Hub A model (light version, without OCI Network Firewalls), which includes all the necessary json objects for Private DNS configuration.
 
-**Private DNS Network json template** consist of the following four additional objects, which are added into Network Configuration:
+**Private DNS Network json template** consist of the following six additional objects, which are added into Network Configuration:
 
-- **1st object**: Network Security Group (NSG) configuration in the **Hub VCN**, attached to the Hub DNS Listener. This configuration enables the necessary Ingress and Egress DNS traffic flow with Spoke DNS Forwarders.
+- **1st object - Hub**: Network Security Group (NSG) configuration in the **Hub VCN**, attached to the Hub DNS Listener. This configuration enables the necessary Ingress and Egress DNS traffic flow with Spoke DNS Forwarders.
 
 
                             "NSG-FRA-LZP-HUB-DNS-KEY": {
@@ -35,7 +35,7 @@ The components highlighted in the architecture diagram below will be implemented
 
 Note: full configuration of the NSGs are available in the **Private DNS Network json template**
 
-- **2nd object**: Configuration of Private views, Forwarder and Listener in the **Hub VCN**.<br>
+- **2nd object - Hub**: Configuration of Private views, Forwarder and Listener in the **Hub VCN**.<br>
   The OCIDs for the Hub, Prod, and PreProd private views should be obtained from the OCI Console or CLI and specified as values for `"existing_view_id"`.<br>
 
                         "dns_resolver": {
@@ -75,7 +75,7 @@ Note: full configuration of the NSGs are available in the **Private DNS Network 
 
   An OCID for the private view in OCI console can be found in **Networking -> DNS management -> Private views -> Private view information**.
 
-- **3rd object**: NSG configuration in **Prod Spoke VCN**, attached to the Prod DNS Forwarder. This enables the required Ingress and Egress DNS traffic flow to the Hub DNS Listener.
+- **3rd object - Prod Spoke**: NSG configuration in **Prod Spoke VCN**, attached to the Prod DNS Forwarder. This enables the required Ingress and Egress DNS traffic flow to the Hub DNS Listener.
 
                             "NSG-LZP-P-PROJECTS-DNS-KEY": {
                                 "display_name": "nsg-lzp-p-projects-dns",
@@ -92,7 +92,7 @@ Note: full configuration of the NSGs are available in the **Private DNS Network 
                             }
 
 
-- **4th object**: DNS resolver configuration for Forwarder and Forwarding Rules in **Prod Spoke VCN**. 
+- **4th object - Prod Spoke**: DNS resolver configuration for Forwarder and Forwarding Rules in **Prod Spoke VCN**. 
 
                         "dns_resolver": {
                             "display_name": "vcn-fra-lzp-p-projects",
@@ -130,7 +130,7 @@ Note: full configuration of the NSGs are available in the **Private DNS Network 
                             }
                         }
                     
-- **5th object**: NSG configuration in **PreProd Spoke VCN**, attached to the PreProd DNS Forwarder.
+- **5th object - PreProd Spoke**: NSG configuration in **PreProd Spoke VCN**, attached to the PreProd DNS Forwarder.
 
                             "NSG-LZP-PP-PROJECTS-DNS-KEY": {
                                 "display_name": "nsg-lzp-pp-projects-dns",
@@ -147,13 +147,13 @@ Note: full configuration of the NSGs are available in the **Private DNS Network 
                             }
 
 
-- **6th object**: DNS resolver configuration for Forwarder and Forwarding Rules in **PreProd Spoke VCN**. 
+- **6th object - PreProd Spoke**: DNS resolver configuration for Forwarder and Forwarding Rules in **PreProd Spoke VCN**. 
 
                         "dns_resolver": {
                             "display_name": "vcn-fra-lzp-pp-projects",
                             "attached_views": {},
                             "rules" : [
-                                    ...
+                            ...
                             ],
                             "resolver_endpoints": {
                                 "RESOLVER_PP_ENDPOINT_FORWARDER_1": {
