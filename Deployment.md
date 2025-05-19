@@ -2,11 +2,12 @@
 # **[OCI Private DNS deployment guide](#)**
 
 ## **Overview**
-This guide provides step-by-step instructions on how to configure and deploy OCI Private DNS on top of existing Hub & Spoke architecture. While it uses the [Hub A model](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/blob/master/addons/oci-hub-models/hub_a/readme.md) as a reference, the process is applicable to all [Hub models](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/blob/master/addons/oci-hub-models/readme.md).<br>
+This guide provides step-by-step instruction on how to configure and deploy OCI Private DNS on top of existing Hub & Spoke architecture. While it uses the [Hub A model](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/blob/master/addons/oci-hub-models/hub_a/readme.md) as a reference, the process is applicable to all [Hub models](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/blob/master/addons/oci-hub-models/readme.md).<br>
 The components highlighted in the architecture diagram below will be implemented as part of this process.
 
 <img src="images/dns-arch.png" width="900" height="value">
 
+&nbsp;
 
 ## **Configuration and deployment**
 
@@ -73,7 +74,7 @@ Note: full configuration of the NSGs are available in the **Private DNS Network 
                             }
                         }
 
-  An OCID for the private view in OCI console can be found in **Networking -> DNS management -> Private views -> Private view information**.
+  The OCIDs for the private views in the OCI console can be found under **Networking -> DNS management -> Private views -> Private view information**.
 
 - **3rd object**: NSG configuration in **Prod Spoke VCN**, attached to the Prod DNS Forwarder. This enables the required Ingress and Egress DNS traffic flow to the Hub DNS Listener.
 
