@@ -11,7 +11,7 @@ The components highlighted in the architecture diagram below will be implemented
 
 ## **Configuration and deployment**
 
-**Step 1**. Ensure that the [OCI Open Landing Zone](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/blob/master/blueprints/one-oe/runtime/one-stack/readme.md) is deployed, as it serves as the foundation for Private DNS configuration..
+**Step 1**. Ensure that the [OCI Open Landing Zone](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/blob/master/blueprints/one-oe/runtime/one-stack/readme.md) is deployed, as it serves as the foundation for Private DNS configuration.
 
 **Step 2**. Update the Network Configuration json to include the objects shown below. You can also refer to and use the **Private DNS Network json template** for the Hub A model (light version, without OCI Network Firewalls), which includes all the necessary json objects for Private DNS configuration.
 
