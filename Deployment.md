@@ -173,8 +173,6 @@ Note: Full configuration of the NSGs are available in the **Private DNS Network 
 
 To summarize: Objects 1, 3, and 5 are the NSG configurations for the Hub, Prod, and Pre-Prod respectively, while objects 2, 4, and 6 are the corresponding DNS resolver configurations.
 
-&nbsp;
-
 Note: Ensure that all required values, including IP addresses, OCIDs, naming conventions, are adjusted to match your specific deployment.
 
 &nbsp;
