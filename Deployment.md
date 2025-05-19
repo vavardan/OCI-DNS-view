@@ -75,7 +75,7 @@ Note: full configuration of the NSGs are available in the **Private DNS Network 
 
   An OCID for the private view in OCI console can be found in **Networking -> DNS management -> Private views -> Private view information**.
 
-- **3rd object**: NSG configuration in **Spoke VCN**, attached to the Prod DNS Forwarder. This enables the required Ingress and Egress DNS traffic flow to the Hub DNS Listener.
+- **3rd object**: NSG configuration in **Prod Spoke VCN**, attached to the Prod DNS Forwarder. This enables the required Ingress and Egress DNS traffic flow to the Hub DNS Listener.
 
                             "NSG-LZP-P-PROJECTS-DNS-KEY": {
                                 "display_name": "nsg-lzp-p-projects-dns",
@@ -92,7 +92,7 @@ Note: full configuration of the NSGs are available in the **Private DNS Network 
                             }
 
 
-- **4th object**: DNS resolver configuration for Forwarder and Forwarding Rules in **Spoke VCN**. 
+- **4th object**: DNS resolver configuration for Forwarder and Forwarding Rules in **Prod Spoke VCN**. 
 
                         "dns_resolver": {
                             "display_name": "vcn-fra-lzp-p-projects",
@@ -129,8 +129,45 @@ Note: full configuration of the NSGs are available in the **Private DNS Network 
                                 }
                             }
                         }
+                    
+- **5th object**: NSG configuration in **PreProd Spoke VCN**, attached to the PreProd DNS Forwarder.
 
-The same configuration applies to both Prod and PreProd environments, with the only difference being that each Spoke DNS Forwarder requires a unique IP address.<br>
+                            "NSG-LZP-PP-PROJECTS-DNS-KEY": {
+                                "display_name": "nsg-lzp-pp-projects-dns",
+                                "egress_rules": {
+                                    "egress_dns_udp": {
+                                        "description": "Egress to Hub DNS endpoint: UDP, Stateless",
+                                        "dst_port_max": 53,
+                                        "dst_port_min": 53,
+                                        "dst": "10.0.5.11/32",
+                                        "dst_type": "CIDR_BLOCK",
+                                        "protocol": "UDP",
+                                        "stateless": true
+                                        ...
+                            }
+
+
+- **6th object**: DNS resolver configuration for Forwarder and Forwarding Rules in **PreProd Spoke VCN**. 
+
+                        "dns_resolver": {
+                            "display_name": "vcn-fra-lzp-pp-projects",
+                            "attached_views": {},
+                            "rules" : [
+                                    ...
+                            ],
+                            "resolver_endpoints": {
+                                "RESOLVER_PP_ENDPOINT_FORWARDER_1": {
+                                    "enpoint_type"      : "VNIC",
+                                    "is_forwarding"     : "true",
+                                    "is_listening"      : "false",
+                                    "forwarding_address": "10.0.131.10",
+                                    "name"              : "dns_forwarder_fra_pp",
+                                    "subnet"            : "SSN-FRA-LZP-PP-INFRA",
+                                    "nsg"               : ["NSG-LZP-PP-PROJECTS-DNS-KEY"]
+                                }
+                            }
+                        }
+
 Note: Ensure all required values, such as IP addresses, are adjusted to match your specific deployment.
 
 &nbsp;
