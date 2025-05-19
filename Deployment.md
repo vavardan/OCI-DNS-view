@@ -2,7 +2,7 @@
 # **[OCI Private DNS configuration and deployment guide](#)**
 
 ## **Overview**
-This guide provides step-by-step instruction on how to configure and deploy OCI Private DNS on top of existing Hub & Spoke architecture. While it uses the [Hub A model](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/blob/master/addons/oci-hub-models/hub_a/readme.md) as a reference, the process is applicable to all [Hub models](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/blob/master/addons/oci-hub-models/readme.md).<br>
+This guide provides step-by-step instruction on how to configure and deploy OCI Private DNS on top of existing [OCI Open LZ](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/blob/master/blueprints/one-oe/runtime/one-stack/readme.md) - Hub & Spoke architecture. While it uses the [Hub A model](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/blob/master/addons/oci-hub-models/hub_a/readme.md) as a reference, the process is applicable to all [Hub models](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/blob/master/addons/oci-hub-models/readme.md).<br>
 The components highlighted in the architecture diagram below will be implemented as part of this process.
 
 <img src="images/dns-arch.png" width="900" height="value">
