@@ -34,9 +34,9 @@ The components highlighted in the architecture diagram below will be implemented
                                         ...
                             }
 
-Note: full configuration of the NSGs are available in the **Private DNS Network json template**
+Note: Full configuration of the NSGs are available in the **Private DNS Network json template**
 
-- **2nd object**: Configuration of Private views, Forwarder and Listener in the **Hub VCN**.<br>
+- **2nd object**: Configuration of the DNS Forwarder and Listener, as well as the Private views in the **Hub VCN**.<br>
   The OCIDs for the Hub, Prod, and PreProd private views should be obtained from the OCI Console or CLI and specified as values for `"existing_view_id"`.<br>
 
                         "dns_resolver": {
@@ -74,9 +74,9 @@ Note: full configuration of the NSGs are available in the **Private DNS Network 
                             }
                         }
 
-  The OCIDs for the private views in the OCI console can be found under **Networking -> DNS management -> Private views -> Private view information**.
+  The OCIDs for the Private views in the OCI console can be found under **Networking -> DNS management -> Private views -> Private view information**.
 
-- **3rd object**: NSG configuration in **Prod Spoke VCN**, attached to the Prod DNS Forwarder. This enables the required Ingress and Egress DNS traffic flow to the Hub DNS Listener.
+- **3rd object**: NSG configuration in the **Prod Spoke VCN**, attached to the Prod DNS Forwarder. This enables the required Ingress and Egress DNS traffic flow to the Hub DNS Listener.
 
                             "NSG-LZP-P-PROJECTS-DNS-KEY": {
                                 "display_name": "nsg-lzp-p-projects-dns",
@@ -93,7 +93,7 @@ Note: full configuration of the NSGs are available in the **Private DNS Network 
                             }
 
 
-- **4th object**: DNS resolver configuration for Forwarder and Forwarding Rules in **Prod Spoke VCN**. 
+- **4th object**: DNS resolver configuration for the Forwarder and Forwarding Rules in **Prod Spoke VCN**. 
 
                         "dns_resolver": {
                             "display_name": "vcn-fra-lzp-p-projects",
@@ -131,7 +131,7 @@ Note: full configuration of the NSGs are available in the **Private DNS Network 
                             }
                         }
                     
-- **5th object**: NSG configuration in **PreProd Spoke VCN**, attached to the PreProd DNS Forwarder.
+- **5th object**: NSG configuration in the **PreProd Spoke VCN**, attached to the PreProd DNS Forwarder.
 
                             "NSG-LZP-PP-PROJECTS-DNS-KEY": {
                                 "display_name": "nsg-lzp-pp-projects-dns",
@@ -148,7 +148,7 @@ Note: full configuration of the NSGs are available in the **Private DNS Network 
                             }
 
 
-- **6th object**: DNS resolver configuration for Forwarder and Forwarding Rules in **PreProd Spoke VCN**. 
+- **6th object**: DNS resolver configuration for the Forwarder and Forwarding Rules in **PreProd Spoke VCN**. 
 
                         "dns_resolver": {
                             "display_name": "vcn-fra-lzp-pp-projects",
@@ -171,7 +171,7 @@ Note: full configuration of the NSGs are available in the **Private DNS Network 
 
 &nbsp;
 
-Note: Make sure that all required values such as IP addresses, OCID's, naming conventions, etc. are set to match your specific deployment.
+Note: Ensure that all required values, including IP addresses, OCIDs, naming conventions, are adjusted to match your specific deployment.
 
 &nbsp;
 
