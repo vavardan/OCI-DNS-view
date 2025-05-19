@@ -168,7 +168,9 @@ Note: full configuration of the NSGs are available in the **Private DNS Network 
                             }
                         }
 
-Note: Ensure all required values, such as IP addresses, are adjusted to match your specific deployment.
+&nbsp;
+
+Note: Make sure that all required values such as IP addresses, OCID's, etc. are set to match your specific deployment.
 
 &nbsp;
 
