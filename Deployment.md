@@ -2,7 +2,7 @@
 # **[OCI Private DNS deployment guide](#)**
 
 ## **Overview**
-This guide provides step-by-step instructions for configuring and deploying OCI Private DNS on top of existing Hub & Spoke architecture. While it uses the [Hub A model](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/blob/master/addons/oci-hub-models/hub_a/readme.md) as a reference, the process is applicable to all [Hub models](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/blob/master/addons/oci-hub-models/readme.md).<br>
+This guide provides step-by-step instructions on how to configure and deploy OCI Private DNS on top of existing Hub & Spoke architecture. While it uses the [Hub A model](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/blob/master/addons/oci-hub-models/hub_a/readme.md) as a reference, the process is applicable to all [Hub models](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/blob/master/addons/oci-hub-models/readme.md).<br>
 The components highlighted in the architecture diagram below will be implemented as part of this process.
 
 <img src="images/dns-arch.png" width="900" height="value">
@@ -12,7 +12,7 @@ The components highlighted in the architecture diagram below will be implemented
 
 **Step 1**. Deploy [OCI Open Landing Zone](https://github.com/oci-landing-zones/oci-landing-zone-operating-entities/blob/master/blueprints/one-oe/runtime/one-stack/readme.md). 
 
-**Step 2**. Update the Network Configuration json to include the below presented objects, or you can download and use the **Private DNS Network json template** for the Hub A model (light version - without OCI Network Firewalls).
+**Step 2**. Update the Network Configuration json to include the objects shown below. You can also refer to and use the **Private DNS Network json template** for the Hub A model (light version, without OCI Network Firewalls), which includes all the necessary json objects for Private DNS configuration.
 
 **Private DNS Network json template** consist of the following four additional objects, which are added into Network Configuration:
 
